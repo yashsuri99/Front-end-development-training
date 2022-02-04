@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--Used in all code Editors-->
+    <meta charset="UTF-8">
+
+    <!--Used to run the updated version of the browser so that latest features can be accessed-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        label {
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--Action is added so that when we submit the form we know which page to go to-->
+    <!--We add method as post so that the details entered are not visible on the url of the page we go to-->
+    <!--If we dont add this then the url will show username=Yash&emailID=yashsuri1999%40gmail.com&password=122-->
+    <!--Enctype is added when we want to input a file-->
+    <form action="06-success.html" method="post" enctype="multipart/form-data">
+
+        <!--Label should be defined for increased acceseility-->
+        <!--For is used to connect label and input-->
+        <label for="full-name">Name:</label>
+
+        <!--Value can be used so that the data is already present as input-->
+        <!--Id should be unique-->
+        <!--If something is required then it means that it should be filled-->
+        <!--The maxlength that can be entered would be 20-->
+        <!--When the site loads the pointer would be already on name-->
+        <input type="text" value="Yash" id="full-name" name="username" required maxlength="20" autofocus />
+        <br>
+
+        <!--Creates a search box-->
+        <label for="search">Search</label>
+        <input type="search" id="search" name="search">
+        <br>
+
+        <label for="email">Email:</label>
+        <!--Pattern Specifies a patern in which the input should be present in-->
+        <!--Autocomplete turns off the suggestion tab and by default it is on-->
+        <input type="email" id="email" name="emailID" placeholder="Sapient Email id" pattern="^[A-Za-z/.]+@sapient.com"
+            autocomplete="off" />
+        <br>
+
+        <!--When the type is password it does'ent reveal the password entered-->
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <br>
+
+        <label for="phone">Mobile Number</label>
+        <input type="tel" id="phone" name="phone" pattern="[6-9][0-9]{9}" />
+        <br>
+
+        <!--Select Dropdown Menu-->
+        <label for="technology">Technology</label>
+        <select id="technology" name="technology">
+            <option value="">--Select a Technology</option>
+            <option value="java">Java</option>
+            <option value="js">Javascript</option>
+            <option value="dotnet">.NET</option>
+            <option value="python">Python</option>
+        </select>
+        <br>
+
+        <!--In dropdown we have to select from the options in list but in datalist we can type our option if not available-->
+        <!--DataList-->
+        <label for="sports1">First Sport</label>
+        <input list="sports" id="sports1" name="first sport" />
+
+        <label for="sports2">Second Sport</label>
+        <input list="sports" id="sports2" name="second sport">
+        <datalist id="sports">
+            <option value="">--Select a sports</option>
+            <option value="cricket">Cricket</option>
+            <option value="football">Football</option>
+            <option value="tennis">Tennis</option>
+            <option value="basketball">Basketball</option>
+        </datalist>
+
+        <!--CheckBox-->
+        <fieldset>
+            <legend>Interests</legend>
+            <label>
+                <!--Checked already checks the box-->
+                <input type="checkbox" id="react" value="react" name="interests" checked />
+                React
+            </label>
+            <label>
+                <input type="checkbox" id="angular" value="angular" name="interests" />
+                Angular
+            </label>
+            <label>
+                <input type="checkbox" id="vue" value="vue" name="interests" />
+                Vue
+            </label>
+            <label>
+                <input type="checkbox" id="node" value="node" name="interests">
+                Node
+            </label>
+        </fieldset>
+        <br>
+
+        <!--Radio Button-->
+        <fieldset>
+            <legend>Newsletter</legend>
+            <label>
+                <input type="radio" id="none" value="none" name="newsletter" checked />
+                React
+            </label>
+            <label>
+                <input type="radio" id="weekly" value="weekly" name="newsletter" />
+                Angular
+            </label>
+            <label>
+                <input type="radio" id="monthly" value="monthly" name="newsletter" />
+                Vue
+            </label>
+        </fieldset>
+        <br>
+
+        <!--TextArea-->
+        <textarea name="bio" id="bio" cols="30" rows="10"></textarea>
+        <br>
+
+        <!--File-->
+        <input type="file" />
+        <br>
+
+        <!--Date-->
+        <label for="dob">Date of Birth</label>
+        <!--Min and Max tell the min and max date that can be entered-->
+        <input type="date" id="dob" name="dob" min="1921-01-01" max="2003-01-01" />
+        <br>
+
+        <!--Number-->
+        <label for="age">Age</label>
+        <!--Min selects the minimum age-->
+        <!--The step would define the amount of increment like in this 18,20,22,24 etc-->
+        <input type="number" id="age" value="40" min="18" step="2" />
+        <br>
+
+        <!--Time-->
+        <label for="time">Time</label>
+        <input type="time" id="time" name="time" min="08:30" max="17:30" required />
+        <br>
+
+        <!--URL-->
+        <label for="url">URL:</label>
+        <input type="url" name="url" id="url" placeholder="https://abc.com" pattern="https://.*" size="30" />
+        <br>
+
+        <!--Range-->
+        <label for="range">Age</label>
+        <input type="range" id="range" name="range" min="18" max="100" />
+        <br>
+
+        <!--Color-->
+        <label for="color">Colour</label>
+        <input type="color" id="color" name="color" value="#ff0000" />
+        <br>
+
+        <!--Creates a submit button-->
+        <input type="submit" value="update profile" />
+        <!--Form no validate dismiises use of required and submits whaterver user inputted-->
+        <input type="submit" value="update profile" formnovalidate/>
+    </form>
+</body>
+
+</html>
+
+<!--We have checkbox, radio, select(dropdown), textarea, file, date, diffrent type of buttons-->
+<!--Excersise input time,url,range,color-->

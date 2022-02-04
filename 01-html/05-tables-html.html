@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--Used in all code Editors-->
+        <meta charset="UTF-8">
+        
+        <!--Used to run the updated version of the browser so that latest features can be accessed-->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            /* Add border the table as well as the content present in header and data */
+            table,th,td {
+                border: 1px solid crimson;
+            }
+            /* Collapses the border of the table i.e removes the order around each element */
+            table {
+                border-collapse: collapse;
+            }
+            /* Padding around the table header and table data */
+            th,td {
+                padding: 1em;
+            }
+            /* Adds cyan background colour to the collumn with the class temperature */
+            .temperature {
+                background-color: cyan;
+            }
+            /* Adds red background colour to the row with class ban */ 
+            .ban {
+                background-color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <!--Title for the table-->
+            <caption>Weather Report</caption>
+            <!--Creates a group of collumns which can be accessed-->
+            <colgroup>
+                <col>
+                <!--Changes background colour of the 2nd collumn which spans to 2 elements i.e MIN and MAX-->
+                <col span="2" class="temperature">
+                <col>
+            </colgroup>
+            <thead>
+                <tr>
+                    <!--Creates the top row of the table that contains headings-->
+                    <!--Define the scope as these represent collumn-->
+                    <!--Colspan and Rowspan explain to how many rows and collums will the box span-->
+                    <!--In this example we divide temperature into Min and Max-->
+                    <th scope="col" rowspan="2">Name</th>
+                    <th scope="col" colspan="2">Temperature</th>
+                    <th scope="col" rowspan="2"> Rainfall</th>
+                </tr>
+                <!--The temperature Min Max are defined here-->
+                <tr>
+                    <th>Min</th>
+                    <th>Max</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--Changes background colour of the first row-->
+                <tr class="ban">
+                    <!--Creates the various rows present in the table-->
+                    <!--Define the scope as these represent rows-->
+                    <th scope="row">Chennai</th>
+                    <td>25</td>
+                    <td>35</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <th scope="row">Bangalore</th>
+                    <td>20</td>
+                    <td>30</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <th scope="row">Gurgaon</th>
+                    <td>5</td>
+                    <td>20</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <th scope="row">Hyderabad</th>
+                    <td>23</td>
+                    <td>33</td>
+                    <td>0</td>
+                </tr>
+            </tbody>
+            <!--tfoot can be used the final result-->
+            <tfoot></tfoot>
+        </table>
+    </body>
+</html>

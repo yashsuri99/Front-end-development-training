@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial scale=1.0">
+        <title>Document</title>
+        <style>
+            /* Selects third child of ul and font color gold */
+            ul :nth-child(3n) {
+                color: gold;
+            }
+            /* Selects first child of ul and font color blue*/
+            ul :first-child {
+                color: blue;
+            }
+            /* Selects last child of ol and font color red */
+            ol :last-child {
+                color: red;
+            }
+            /* Selects first letter of ol and change font size to double and font color purple */
+            ol::first-letter {
+                font-size: 200%;
+                color: purple;
+            }
+            /* Select table,th,td and adds 1px border width which is solid and black in colour */
+            table,th,td {
+                border: 1px solid black;
+            }
+            /* Selects class more and changes it contents background colour to turquoise */
+            .more {
+                background-color: turquoise;
+            }
+            /* Selects tr and changes the even number tr tags background colour to blue */
+            tr:nth-child(even) {
+                background-color: blue;
+            }
+            /* Selects tr and changes the odd number tr tags background colour to red */
+            tr:nth-child(odd) {
+                background-color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li>One</li>
+            <li>Two</li>
+            <li>Three</li>
+            <li>Four</li>
+            <li>Five</li>
+            <li>Six</li>
+            <li>One</li>
+            <li>Two</li>
+            <li>Three</li>
+            <li>Four</li>
+            <li>Five</li>
+            <li>Six</li>
+        </ul>
+
+        <ol>
+            <li>One</li>
+            <li>Two</li>
+            <li>Three</li>
+        </ol>
+
+        <table>
+            <tr>
+                <th class="more">Sport</th>
+                <th class="more">Priority</th>
+            </tr>
+            <tr>
+                <td>Cricket</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>Football</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>Tennis</td>
+                <td>3</td>
+            </tr>
+        </table>
+    </body>
+</html>

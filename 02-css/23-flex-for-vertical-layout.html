@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial scale=1.0">
+        <title>Document</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            .grandparent {
+                display: flex;
+                flex-direction: column;
+                height: 600px;
+            }
+            .parent {
+                display: flex;
+                height: 100px;
+                border: 1px solid black;
+            }
+            .child1 {
+                flex-grow: 0;
+                flex-shrink: 1;
+                flex-basis: 60px;
+                padding: 16px 0px;
+                margin: 1px;
+                text-align: center;
+            }
+
+            .child1:nth-child(even) {
+                background-color: turquoise;
+            }
+
+            /* .child1:nth-child(odd) {
+                text-align: end;
+            } */
+
+            .child2 {
+                flex-grow: 2;
+                text-align: left;
+            }
+
+            .enter {
+                background-color: lightgray;
+                z-index: 1;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="grandparent">
+            <div class="parent">
+                <div class="child1">
+                    1
+                </div>
+                <div class="child1 child2">
+                </div>
+            </div>
+            <div class="parent">
+                <div class="child1">
+                    2
+                </div>
+                <div class="child1 child2">
+                </div>
+            </div>
+            <div class="parent">
+                <div class="child1">
+                    3
+                </div>
+                <div class="child1 child2">
+                    
+                </div>
+            </div>
+            <div class="parent">
+                <div class="child1">
+                    4
+                </div>
+                <div class="child1 child2">
+                    
+                </div>
+            </div>
+            <div class="parent">
+                <div class="child1">
+                    5
+                </div>
+                <div class="child1 child2">
+                    
+                </div>
+            </div>
+            <div class="parent">
+                <div class="child1">
+                    6
+                </div>
+                <div class="child1 child2">
+                    <div class="enter">
+                        <strong>Project Kickoff</strong>
+                        <hr>
+                        Attendees: mark@example.com jane@example.com
+                    </div>
+                </div>
+            </div>
+            <div class="parent">
+                <div class="child1">
+                    7
+                </div>
+                <div class="child1 child2">
+                    
+                </div>
+            </div>
+            <div class="parent">
+                <div class="child1">
+                    8
+                </div>
+                <div class="child1 child2">
+                    
+                </div>
+            </div>
+            <div class="parent">
+                <div class="child1">
+                    9
+                </div>
+                <div class="child1 child2">
+                    
+                </div>
+            </div>
+            <div class="parent">
+                <div class="child1">
+                    10
+                </div>
+                <div class="child1 child2">
+                    
+                </div>
+            </div>
+            <div class="parent">
+                <div class="child1">
+                    11
+                </div>
+                <div class="child1 child2">
+                    
+                </div>
+            </div>
+            <div class="parent">
+                <div class="child1">
+                    12
+                </div>
+                <div class="child1 child2">
+                    
+                </div>
+            </div>
+            <div class="parent">
+                <div class="child1">
+                    13
+                </div>
+                <div class="child1 child2">
+                    
+                </div>
+            </div>
+            <div class="parent">
+                <div class="child1">
+                    14
+                </div>
+                <div class="child1 child2">
+                    
+                </div>
+            </div>
+            <div class="parent">
+                <div class="child1">
+                    15
+                </div>
+                <div class="child1 child2">
+                    
+                </div>
+            </div>
+            <div class="parent">
+                <div class="child1">
+                    16
+                </div>
+                <div class="child1 child2">
+                    
+                </div>
+            </div>
+            <div class="parent">
+                <div class="child1">
+                    17
+                </div>
+                <div class="child1 child2">
+                    
+                </div>
+            </div>
+            <div class="parent">
+                <div class="child1">
+                    18
+                </div>
+                <div class="child1 child2">
+                    
+                </div>
+            </div>
+            <div class="parent">
+                <div class="child1">
+                    19
+                </div>
+                <div class="child1 child2">
+                    
+                </div>
+            </div>
+            <div class="parent">
+                <div class="child1">
+                    20
+                </div>
+                <div class="child1 child2">
+                    
+                </div>
+            </div>
+            <div class="parent">
+                <div class="child1">
+                    21
+                </div>
+                <div class="child1 child2">
+                    
+                </div>
+            </div>
+            <div class="parent">
+                <div class="child1">
+                    22
+                </div>
+                <div class="child1 child2">
+                    
+                </div>
+            </div>
+            <div class="parent">
+                <div class="child1">
+                    23
+                </div>
+                <div class="child1 child2">
+                    
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

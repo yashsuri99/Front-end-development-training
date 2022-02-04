@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width , initial-scale=1.0">
+        <title>
+            Document
+        </title>
+        <!--embedded CSS (along with HTML page - usually in the head style tag)-->
+        <style>
+            #p2 {
+                color: green;
+            }
+            /*attribrute selector */
+            [target] {
+                color: gold;
+            }
+            [href="https://www.google.com"] {
+                color: purple;
+            }
+        </style>
+        <!--external CSS (seperate css file which is included in page)-->
+        <link rel="stylesheet" href="01-hello-css.css">
+    </head>
+    <body>
+        <!--inline CSS (css along with HTML element - style attribrute)-->
+        <!--not preffered way of styling-->
+        <p style="color: red;">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente sed natus animi, iusto consequatur nihil impedit? Voluptates eum officia in deleniti inventore earum, hic dolorum dolores facere eius. Perferendis, odit?
+        </p>
+        <p id="p2">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam nisi illum impedit dicta labore exercitationem ipsa ex aperiam officia saepe. Illo, doloremque repudiandae! Deleniti, voluptate numquam illo quas ea vitae.
+        </p>
+        <p id="p3">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur laudantium incidunt esse natus amet ea dignissimos unde obcaecati voluptate officia accusamus voluptatibus doloribus, dicta hic vel corrupti voluptates numquam quod!
+        </p>
+        <a href= "https://www.google.com">Goodle search</a>
+        <a href="https://www.facebook.com" target="_blank">Facebook</a>
+        <a href="https://www.twitter.com" target="_blank">Twitter</a>
+    </body>
+</html>

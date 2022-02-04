@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="10-normalize.css">
+        <link rel="stylesheet" href="external/fontawesome/css/all.min.css">
+        <style>
+            html {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            /* mobile-first */
+            nav {
+                padding: 0.2em;
+                *background-color: rgb( 51, 51, 51 );
+                background-color: rgb( 0, 0, 0 );
+                *font-size: 0.85em;
+                font-size: 1.1em;
+            }
+
+            .list-unstyled {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .main-menu {
+                display: flex;
+                flex-wrap: wrap; /* Helps in wrapping the elements when in mobile form */
+                padding: 0 2em;
+            }
+
+            .main-menu .brand-image {
+                display: inline-block; 
+                width: 20px;
+                height: 20px;
+                background-image: url( "https://www.apple.com/ac/globalnav/7/en_US/images/be15095f-5a20-57d0-ad14-cf4c638e223a/globalnav_apple_image__b5er5ngrzxqq_large.svg" );
+                background-position: 0 -10px;
+                background-repeat: no-repeat;
+                align-content: center;
+            }
+
+            .fa-white {
+                color: white;
+            }
+
+            .main-menu li.brand-image-list-item {
+                text-align:center;
+            }
+
+            .main-menu li {
+                flex: 0 0 100%;
+                padding: 0.5em 0;
+                border-bottom: 1px solid rgb( 96, 96, 96 );
+            }
+
+            .main-menu li:first-child {
+                border-bottom: none;
+            }
+
+            .main-menu li:not(:first-child) {
+                display: none;
+            }
+
+            .main-menu li:last-child {
+                border-bottom: none;
+            }
+
+            .d-flex {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .main-menu a {
+                text-decoration: none;
+                color: rgb( 240, 240, 240 );
+            }
+
+            .d-mobile-block {
+                display: block !important;
+            }
+
+            @media (min-width: 946px) {
+
+                .d-desktop-none {
+                    display: none;
+                }
+
+                nav {
+                    display: flex;
+                    justify-content: space-around;
+                }
+
+                .main-menu {
+                    margin: 0 auto;
+                }
+
+                /* !important is used when this is a must that should be displayed or used */
+                .main-menu li {
+                    flex-basis: auto;
+                    border-bottom: none;
+                    display: block !important;
+                }
+
+                .main-menu a {
+                    padding: 0.25em 0.5em;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <ul class="list-unstyled main-menu">
+                <li class="brand-image-list-item d-flex">
+                    <i class="fas fa-bars fa-white d-desktop-none" id="menu-toggler"></i>
+                    <a href="">
+                        <span class="brand-image"></span>
+                    </a>
+                    <i class="fas fa-shopping-bag fa-white d-desktop-none"></i>
+                </li>
+                <li>
+                    <a href="/store">Store</a>
+                </li>
+                <li>
+                    <a href="/mac">Mac</a>
+                </li>
+                <li>
+                    <a href="/ipad">iPad</a>
+                </li>
+                <li>
+                    <a href="/iphone">iPhone</a>
+                </li>
+                <li>
+                    <a href="/watch">Watch</a>
+                </li>
+                <li>
+                    <a href="/airpods">Air Pods</a>
+                </li>
+                <li>
+                    <a href="/tv">TV & Home</a>
+                </li>
+                <li>
+                    <a href="/only">Only on Apple</a>
+                </li>
+                <li>
+                    <a href="/accessories">Accessories</a>
+                </li>
+                <li>
+                    <a href="/support">Support</a>
+                </li>
+            </ul>
+        </nav>
+
+        <script>
+            function toggle() {
+                const lis = document.querySelectorAll( '.main-menu li:not(:first-child)');
+                console.log(lis);
+
+                for( let i = 0; i < lis.length; i++ ) {
+                    lis[i].classList.toggle('d-mobile-block');
+                }
+            }
+            const menuToggler = document.querySelector('#menu-toggler');
+            menuToggler.addEventListener( 'click' , toggle);
+        </script>
+    </body>
+</html>

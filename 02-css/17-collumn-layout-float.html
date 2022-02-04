@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial scale=1.0">
+        <title>Document</title>
+        <style>
+            /* Calculate the width the total percentage should be 100 */
+            /* Equal height collumns cannot be gained through this so flexbox is used */
+            .col {
+                float: left;
+                width: 22.75%;
+                margin: 0 1.5%; 
+                background-color: grey;
+            }
+            .col:first-child {
+                margin-left: 0;
+            }
+            .col:last-child 
+            {
+                margin-right: 0;
+            }
+            /* media queries - conditional css used for making responsive web design*/
+            /* most common media query -> width based : min-width (>=) / max width (<=) */
+            /* assume this is width of mobile device */
+            /* this is considred a bad approach */
+            /* we should create first for mobile not for desktop correct form in next file */
+            @media (max-width: 600px) {
+                .col {
+                    width: 100%;
+                    margin: 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="row">
+            <div class="col">
+                <h2>Consumer Products</h2>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore amet magni, fuga quasi mollitia consequatur aut dolores sint velit commodi illo, repellat dignissimos beatae tenetur eligendi reprehenderit suscipit nihil illum?
+            </div>
+            <div class="col">
+                <h2> Energy and commodities</h2>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque laboriosam soluta doloremque exercitationem iusto nobis accusamus modi sapiente velit, sint repellat expedita maxime officia, minus odit? Eaque hic doloribus voluptas!
+            </div>
+            <div class="col">
+                <h2> Financial Services</h2>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae voluptatibus velit, repellat magnam minima temporibus quo dolorum totam atque aperiam laborum ab asperiores officia eos ad reprehenderit, doloribus, sed officiis.
+            </div>
+            <div class="col">
+                <h2>Machine Mechanisms</h2>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum tempora adipisci dolor voluptatem, vero quisquam excepturi aut quos officia reiciendis ipsum, voluptates tenetur. Officia quas, blanditiis qui molestiae quo at.
+            </div>
+        </div>
+    </body>
+</html>

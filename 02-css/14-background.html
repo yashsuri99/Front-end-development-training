@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            /* EXERCISE: background-position */
+            /* Excersise for late Q11 from CSS lab guides */
+            div {
+                height: 10em;
+                border: 1px solid black;
+                margin: 1em 0;
+            }
+
+            #div-1 {
+                background-color: gold;
+            }
+
+            #div-2 {
+                background-image: url( "https://img.freepik.com/free-vector/abstract-blue-geometric-shapes-background_1035-17545.jpg?size=626&ext=jpg" );
+                /* Stops the repeating of image */
+                background-repeat: no-repeat; /* repeat, repeat-x, repeat-y */
+                /* Background posistion sets the initial posistion of the image */
+                background-position: left;
+            }
+            
+            #div-3 {
+                /* Default repeats the image */
+                background-image: url( "https://img.freepik.com/free-vector/abstract-blue-geometric-shapes-background_1035-17545.jpg?size=626&ext=jpg" );
+            }
+            
+            #div-4 {
+                background-image: url( "https://img.freepik.com/free-vector/abstract-blue-geometric-shapes-background_1035-17545.jpg?size=626&ext=jpg" );
+                /* Contains the image and repeats it again and again till box fills */
+                background-size: contain;
+                background-repeat: repeat;
+            }
+            
+            #div-5 {
+                background-image: url( "https://img.freepik.com/free-vector/abstract-blue-geometric-shapes-background_1035-17545.jpg?size=626&ext=jpg" );
+                /* Doesnt repeat but covers the whole box with the image */
+                background-repeat: no-repeat; /* repeat, repeat-x, repeat-y */
+                background-size: cover;
+            }
+            
+            #div-6 {
+                background-image: url( "https://img.freepik.com/free-vector/abstract-blue-geometric-shapes-background_1035-17545.jpg?size=626&ext=jpg" );
+                /* Stops repeating and streches the image 100% percent on both the sides generally not preffered */
+                background-repeat: no-repeat; /* repeat, repeat-x, repeat-y */
+                background-size: 100% 100%;
+            }
+        </style>
+    </head>
+    <body>
+       <div id="div-1">lorem</div>
+       <div id="div-2">lorem</div>
+       <div id="div-3">lorem</div>
+       <div id="div-4">lorem</div>
+       <div id="div-5">lorem</div>
+       <div id="div-6">lorem</div>
+    </body>
+</html>

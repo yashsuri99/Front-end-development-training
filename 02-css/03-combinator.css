@@ -1,0 +1,28 @@
+h2 {
+    color: gold;
+}
+
+h3 {
+    color: gold;
+}
+
+/*Parent - child means it changes h2 directly within section - >*/
+section > h2 {
+    text-decoration: underline;
+}
+/* Means it changes all h2 that are present somwhere within section */
+section h2 {
+    font-style: italic;
+}
+
+section>div>h3, div>h3 {
+    color: purple;
+}
+
+/* This would change the size of the element with both classes x and y if a tag has only one it wont apply on it*/
+.x.y {
+    font-size: 3em;
+}
+
+/* General sibling selector '+' it changes the tag just after the tag mentioned */
+/* General sibling selector '~' it changes the all the tags after the the first tag*/

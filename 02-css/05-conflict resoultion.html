@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial scale=1.0">
+        <title>Document</title>
+        <style>
+            /* Last style wins in case of conflict assuming specifities are same */
+            /* .class selector is more specefic than type selector */
+            /* #id selector is more specefic than .class selector */
+            /* speceficity: (0,1), num_ids,num_classes,num_types */
+            /* specefecity: (0,1,0,3) */
+            section#main div p {
+                color: lime;
+            }
+            /* specefecity: (0,1,0,2) */
+            section > div > #p1 {
+                color:lightgrey
+            }
+            /* specefecity: (0,1,0,1) */
+            section #p1 {
+                color: pink;
+            }
+            /* specefecity: (0,0,1,1) */
+            section .para {
+                color: gold;
+            }
+            #p1 {
+                color: olive;
+            }
+            .para {
+                color: purple
+            }
+            p {
+                color: green;
+            }
+            p {
+                color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <section id="main">
+            <div>
+                <p id="1" class="para">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque assumenda dignissimos ea accusamus voluptatem, in nesciunt labore sit. Perferendis officia iste est eaque aliquam quos rem minus fuga commodi nostrum.
+                </p>
+            </div>
+        </section>
+        
+    </body>
+</html>

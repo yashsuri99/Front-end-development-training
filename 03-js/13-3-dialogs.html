@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- 
+            Alert(Provide Information)
+            Confirm(To take user choice - Yes/No)
+            Prompt (Get an input for user)
+         -->
+         <script>
+            // these functions are blocking in nature 
+            // nothing is returned
+             alert('Good Morning')
+
+            // true if ol is clicked, false if cancel is clicked
+            const choice = confirm('We can use cookies to track you website usage. Do you accept it')
+            console.log(choice)
+
+            // the user input if ok is clicked, null if cancel is clicked
+            const name = prompt('What is your name', 'John')
+            console.log(name);
+         </script>
+    </body>
+</html>

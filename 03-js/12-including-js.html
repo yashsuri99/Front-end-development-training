@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .hide {
+                display: none;
+            }
+        </style> 
+    </head>
+    <body>
+        <button onclick="document.querySelector('#para-1').classList.toggle('hide')">Click to toggle(INline)</button>
+        <button id="button-2">Click to toggle para(IN Document)</button>
+        <button id="button-3">Click to toggle paragraph(External JS)</button>
+        <p id="para-1">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, cupiditate. Culpa, sequi tenetur fugiat aut explicabo aspernatur laboriosam iusto quam magnam quas voluptatum reprehenderit, quibusdam, commodi cumque accusamus sed temporibus.
+            Consectetur harum architecto nihil. Non quidem placeat iusto et autem, voluptatem voluptatibus, magni eligendi aspernatur molestias rerum nulla rem reprehenderit nisi perferendis. Enim veritatis, sint voluptas tempora obcaecati quibusdam vitae?
+        </p>
+        <!-- scripts are render and parser blocking -->
+        <script>
+            const para1 = document.querySelector('#para-1');
+            document.querySelector('#button-2').addEventListener( 'click' , function() {
+                para1.classList.toggle('hide');
+            });
+        </script>
+        <script src="/12-including-js.js"></script>
+    </body>
+</html>

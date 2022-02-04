@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width ,initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .alert {
+                border-width: 1px;
+                border-style: solid;
+            }
+
+            .alert-primary {
+                border-color: navy;
+            }
+
+            .alert-danger {
+                border-color: crimson;
+            }
+
+            .alert-heading, .alert-body {
+                padding: 1em;
+            }
+
+            .alert-primary .alert-heading {
+                background-color: navy;
+                color: white;
+            }
+
+            .alert-danger .alert-heading {
+                background-color: crimson;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <button id="change-theme">Change Theme</button>
+        <div class="alert alert-primary" id="main-alert">
+            <div class="alert-heading">
+                What is JQuery?
+            </div>
+            <div class="alert-body">
+                It is a JS library for writing cross browser compatible JS
+            </div>
+        </div>
+        <script src="js/jquery-3.6.0.js"></script>
+
+        <script>
+            $('#main-alert .alert-heading').click(function() {
+                // it checks if the .alert-heading has display: block, then it sets display: none and vice-versa
+                $(this).next().slideToggle();
+            });
+
+            $('#change-theme').click(function(){
+                // removes and adds a class on the click of the button
+                $('#main-alert').removeClass('alert-primary').addClass('alert-danger');
+            });
+        </script>
+    </body>
+</html>

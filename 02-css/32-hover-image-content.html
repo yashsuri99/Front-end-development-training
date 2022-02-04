@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="10-normalize.css">
+        <link rel="stylesheet" href="external/fontawesome/css/all.min.css">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                border: 0;
+            }
+            .wrap {
+                position: absolute;
+                height: 200px;
+                width:300px;
+                text-align: center;
+            }
+
+            .description {
+                position: absolute;
+                top: 150px ;
+                
+                background: rgba(29, 106, 154, 0.72);
+                color: #fff;
+                visibility: hidden;
+                opacity: 0;
+            }
+
+            .wrap:hover .description {
+                visibility: visible;
+                opacity: 0.8;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <img src="../01-html/images/download.jpeg" />
+            <p class="description">Tom and jerry</p>
+        </div>
+    </body>
+</html>

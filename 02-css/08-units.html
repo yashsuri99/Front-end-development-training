@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial scale=1.0">
+        <title>Document</title>
+        <style>
+            #div-1 {
+                /* px is an absolute unit */
+                font-size: 10px; /* 96px -> 1inch */
+            }
+            #div-2 {
+                /* em is a relative unit (with respect to the inherited value) */
+                font-size: 2em; /* 16px X 2 = 32px */
+            }
+            /* we generally prefer using % units of horizontal dimensions */
+            #div-3 {
+                width: 700px; /* not preffered */
+                border: 1px solid crimson;
+            }
+            #div-4 {
+                /*  % of parent width is used in percentage unit */
+                width: 50%; /* preffered */
+                border: 1px solid crimson;
+            }
+            /* #para {
+                font-size: 3em;
+            } */
+            #section {
+                font-size: 3em;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="div-1">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero porro, non aspernatur expedita beatae quae sed aut nisi iure fuga magnam eaque impedit harum similique qui vitae dolorum dignissimos asperiores?
+        </div>
+        <div id="div-2">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora quaerat aspernatur vel illo ex consequatur impedit obcaecati repellendus qui hic, nesciunt in porro provident ullam cupiditate earum iste sequi distinctio.
+        </div>
+        <div id="div-3">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos iure odio quod. Iste excepturi assumenda ipsa sit quo! Officiis est quos eligendi? Consequuntur, error. Nobis quis consectetur suscipit non eos.
+        </div>
+        <div id="div-4">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur eveniet, odio, repellendus expedita quidem perferendis, asperiores temporibus cupiditate consectetur rem doloribus nostrum. Iusto et voluptatem illum voluptatum nam, atque est.
+        </div>
+        <section id="section">
+            <p id="para">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque explicabo soluta assumenda qui, nesciunt necessitatibus sed dicta, ducimus quae unde corporis aliquam rem velit voluptas neque odio, officiis sunt quia.
+            </p>
+        </section>
+    </body>
+</html>

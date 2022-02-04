@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial scale=1.0">
+        <title>Document</title>
+        <style>
+            .row {
+                display: flex; /* used to add flex box funtionality */
+                padding: 1em;
+                flex-direction: row; /* can be col default is row */
+                flex-wrap: wrap; /* default is no wrap makes the boxes to goto next line */
+                border: 1px solid crimson;
+            }
+            .col {
+                /* decides if the element want to shrink or not 0 means that they would not shrink and each collumn would take the width to fit content in single line */
+                /* flex-shrink: 0;  */
+                border: 1px solid black;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="row">
+            <div class="col">
+                <h2>Column 1</h2>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto repellendus inventore vel magnam quos nobis fuga laudantium praesentium, quidem beatae quo omnis exercitationem velit ut facilis, cupiditate, at quod neque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse error nulla, dolorum nihil mollitia quod vel deleniti voluptatibus perspiciatis, atque veritatis delectus accusantium eius aspernatur quia non sed. Quos, placeat? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi, maiores officiis. Repellendus dolore vitae, architecto cupiditate est, inventore perspiciatis corrupti illum eligendi consequuntur dicta totam sapiente, non reprehenderit vel nobis!
+            </div>
+            <div class="col">
+                <h2>Column 2</h2>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto repellendus inventore vel magnam quos nobis fuga laudantium praesentium, quidem beatae quo omnis exercitationem velit ut facilis, cupiditate, at quod neque.
+            </div>
+            <div class="col">
+                <h2>Column 3</h2>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto repellendus inventore vel magnam quos nobis fuga laudantium praesentium, quidem beatae quo omnis exercitationem velit ut facilis, cupiditate, at quod neque.
+            </div>
+            <div class="col">
+                <h2>Column 4</h2>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto repellendus inventore vel magnam quos nobis fuga laudantium praesentium, quidem beatae quo omnis exercitationem velit ut facilis, cupiditate, at quod neque.
+            </div>
+    </body>
+</html>

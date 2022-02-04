@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .box {
+                display: inline-block;
+                width: 100px;
+                height: 100px;
+                line-height: 100px;
+                text-align: center;
+                background-color: crimson;
+                color: white;
+            }
+
+            div:nth-of-type(1) {
+                transform: translate(100px , 50px);
+            }
+
+            .box-rotate {
+                transform-origin: center center;
+                transform: translate(100px , 50px) rotate( -45deg );
+            }
+
+            .box-scale {
+                transform: translate(400px , 400px) scale( 0.5 , 2);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">Hello</div>
+        <div class = "box box-rotate">Hello</div>
+        <div class="box box-rotate">Hello</div>
+        <div class="box box-scale">Hello</div>
+    </body>
+</html>

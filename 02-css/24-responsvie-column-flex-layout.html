@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial scale=1.0">
+        <title>Document</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            .row {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap; /* Helps in moving the content one below the other in mobile */
+            }
+
+            .col {
+                flex: 0 0 100%;
+                padding: 32px;
+                margin: 4px 0;
+                background-color: gold;
+            }
+
+            @media (min-width: 992px) {
+                .row {
+                    justify-content: space-between;
+                }
+                .col {
+                    flex-basis: 30%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="row">
+            <div class="col">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, repudiandae vel sed voluptatibus porro eveniet enim consequatur nesciunt. Ex asperiores aut doloribus quibusdam? Distinctio nemo in quo perferendis, quaerat ut.
+                Minima doloribus tempora excepturi nesciunt. Explicabo hic earum accusantium, incidunt facilis minima, laboriosam aliquam sed cumque ipsam excepturi quia perferendis a recusandae suscipit rem alias voluptatem magnam ducimus ad? Ipsum?
+                Tempore ea praesentium neque esse atque ullam explicabo sit quaerat omnis eum inventore facilis laboriosam ipsa minima numquam odit, quibusdam perspiciatis dignissimos quis culpa qui at! Amet deleniti delectus maxime.
+            </div>
+            <div class="col">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias minima quas illo recusandae debitis eveniet nobis quis maxime consectetur cupiditate inventore, quidem aperiam labore modi magnam dignissimos repellendus maiores consequuntur?
+            </div>
+            <div class="col">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae rem neque labore, porro ratione incidunt cupiditate recusandae natus hic, omnis tenetur aliquam dicta qui aut repellendus assumenda. Nam, soluta corporis.
+            </div>
+        </div>
+    </body>
+</html>

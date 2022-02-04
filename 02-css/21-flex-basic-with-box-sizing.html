@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial scale=1.0">
+        <title>Document</title>
+        <style>
+            * {
+                /* this line is always entered */
+                /* width of any element now includes space taken by padding-left and right , border-width-left and right */
+                box-sizing: border-box;
+            }
+            .row {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            .col {
+                flex-basis: 30%;
+                flex-grow: 0;
+                padding: 1em;
+                background-color: lightgrey;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="row">
+            <div class="col">
+                <h2>Column 1</h2>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto repellendus inventore vel magnam quos nobis fuga laudantium praesentium, quidem beatae quo omnis exercitationem velit ut facilis, cupiditate, at quod neque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse error nulla, dolorum nihil mollitia quod vel deleniti voluptatibus perspiciatis, atque veritatis delectus accusantium eius aspernatur quia non sed. Quos, placeat? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi, maiores officiis. Repellendus dolore vitae, architecto cupiditate est, inventore perspiciatis corrupti illum eligendi consequuntur dicta totam sapiente, non reprehenderit vel nobis!
+            </div>
+            <div class="col">
+                <h2>Column 2</h2>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto repellendus inventore vel magnam quos nobis fuga laudantium praesentium, quidem beatae quo omnis exercitationem velit ut facilis, cupiditate, at quod neque.
+            </div>
+            <div class="col">
+                <h2>Column 3</h2>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto repellendus inventore vel magnam quos nobis fuga laudantium praesentium, quidem beatae quo omnis exercitationem velit ut facilis, cupiditate, at quod neque.
+            </div>
+        </div>
+    </body>
+    </body>
+</html>

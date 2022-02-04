@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title> 
+        <style>
+            h2 {
+                display: inline;
+            }
+            a {
+                display: block;
+            }
+            /* Naturally display is set to block */
+            /* In block display we cannot add element next to each other */
+            h3 {
+                width: 50%;
+            }
+            /* If we set inline the we cannot enter the width attribrute */
+            span {
+                width: 50%;
+            }
+            /* To do both we use inline-block display */
+            .ib {
+                display: inline-block;
+                width: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <!--block element-->
+        <h2>Hello</h2><h2>World</h2>
+
+        <!--inline elements-->
+        <a href="#">Hello</a><a href="#">World</a>
+
+        <h3>Hello</h3><h3>World</h3>
+        <span>Hello</span><span>World</span>
+        <br>
+        <span class="ib">Hello</span><span class="ib">World</span>
+    </body>
+</html>

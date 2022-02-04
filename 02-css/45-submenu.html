@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="css/normalize.css">
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            nav {
+                background-color: #bbb;
+                padding: 0 0.5em;
+            }
+
+            .list-unstyled {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .list-inline {
+                display: flex;
+                flex-flow: row wrap; /* flex-direction flex-wrap */
+            }
+
+            nav a {
+                display: inline-block;
+                padding: 0.5em;
+                text-decoration: none;
+                color: initial;
+            }
+
+            .main-menu li a:hover {
+                background-color: #999;
+            }
+
+            nav li.sub-menu-wrapper {
+                position: relative;
+            }
+
+            nav ul.sub-menu {
+                display: none; /* hide the sub menu initially */
+                position: absolute;
+                top: 34px;
+                left: 0px;
+                min-width: 150px;
+                border: 1px solid lightgray;
+                border-radius: 4px;
+                background-color: white;
+            }
+
+            nav ul.sub-menu a {
+                display: inline-block;
+                width: 100%;
+                padding: 0.5em 1em;
+            }
+
+            /* .show {
+                display: block !important;
+            } */
+        </style>
+    </head>
+    <body>
+        <nav>
+            <ul class="main-menu list-unstyled list-inline">
+                <li class="sub-menu-wrapper">
+                    <a href="#">
+                        Icon
+                    </a>
+                    <ul class="sub-menu list-unstyled">
+                        <li>
+                            <a href="jira.html">Jira</a>
+                        </li>
+                        <li>
+                            <a href="jira.html">Confluence</a>
+                        </li>
+                        <li>
+                            <a href="jira.html">Atlassian</a>
+                        </li>
+                        <li>
+                            <a href="support.html">Log a support request</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="bitbucket.html">BitBucket</a>
+                </li>
+                <li>
+                    <a href="projects.html">Projects</a>
+                </li>
+                <li class="sub-menu-wrapper">
+                    <a href="#">
+                        Repositories
+                    </a>
+                    <ul class="sub-menu list-unstyled">
+                        <li>
+                            <a href="#">Training Material</a>
+                        </li>
+                        <li>
+                            <a href="#">Assessments</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <script src="js/jquery-3.6.0.js"></script>
+        <script>
+            $( '.sub-menu-wrapper' ).click(function() {
+                // $( this ).find( '.sub-menu' ).toggleClass( 'show' );
+                $( this ).find( '.sub-menu' ).fadeToggle( 200 );
+            });
+        </script>
+    </body>
+</html>

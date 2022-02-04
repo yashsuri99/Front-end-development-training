@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="10-normalize.css">
+        <link rel="stylesheet" href="external/fontawesome/css/all.min.css">
+        <style>
+            html {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            /* mobile-first */
+            nav {
+                width: 100%;
+                padding: 0.2em;
+                *background-color: rgb( 51, 51, 51 );
+                background-color: rgb( 0, 0, 0);
+                *font-size: 0.85em;
+                font-size: 1.1em;
+                position: fixed;
+                top: 0px;
+            }
+
+            body {
+                margin-top: 70px;
+            }
+
+            .list-unstyled {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .main-menu {
+                display: flex;
+                flex-wrap: wrap; /* Helps in wrapping the elements when in mobile form */
+                padding: 0 2em;
+            }
+
+            .main-menu .brand-image {
+                display: inline-block; 
+                width: 20px;
+                height: 20px;
+                background-image: url( "https://www.apple.com/ac/globalnav/7/en_US/images/be15095f-5a20-57d0-ad14-cf4c638e223a/globalnav_apple_image__b5er5ngrzxqq_large.svg" );
+                background-position: 0 -10px;
+                background-repeat: no-repeat;
+                align-content: center;
+            }
+
+            .fa-white {
+                color: white;
+            }
+
+            .main-menu li.brand-image-list-item {
+                text-align:center;
+            }
+
+            .main-menu li {
+                flex: 0 0 100%;
+                padding: 0.5em 0;
+                border-bottom: 1px solid rgb( 96, 96, 96 );
+            }
+
+            .main-menu li:first-child {
+                border-bottom: none;
+            }
+
+            .main-menu li:not(:first-child) {
+                display: none;
+            }
+
+            .main-menu li:last-child {
+                border-bottom: none;
+            }
+
+            .d-flex {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .main-menu a {
+                text-decoration: none;
+                color: rgb( 240, 240, 240 );
+            }
+
+            .d-mobile-block {
+                display: block !important;
+            }
+
+            @media (min-width: 946px) {
+
+                .d-desktop-none {
+                    display: none;
+                }
+
+                nav {
+                    display: flex;
+                    justify-content: space-around;
+                }
+
+                .main-menu {
+                    margin: 0 auto;
+                }
+
+                /* !important is used when this is a must that should be displayed or used */
+                .main-menu li {
+                    flex-basis: auto;
+                    border-bottom: none;
+                    display: block !important;
+                }
+
+                .main-menu a {
+                    padding: 0.25em 0.5em;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <ul class="list-unstyled main-menu">
+                <li class="brand-image-list-item d-flex">
+                    <i class="fas fa-bars fa-white d-desktop-none" id="menu-toggler"></i>
+                    <a href="">
+                        <span class="brand-image"></span>
+                    </a>
+                    <i class="fas fa-shopping-bag fa-white d-desktop-none"></i>
+                </li>
+                <li>
+                    <a href="/store">Store</a>
+                </li>
+                <li>
+                    <a href="/mac">Mac</a>
+                </li>
+                <li>
+                    <a href="/ipad">iPad</a>
+                </li>
+                <li>
+                    <a href="/iphone">iPhone</a>
+                </li>
+                <li>
+                    <a href="/watch">Watch</a>
+                </li>
+                <li>
+                    <a href="/airpods">Air Pods</a>
+                </li>
+                <li>
+                    <a href="/tv">TV & Home</a>
+                </li>
+                <li>
+                    <a href="/only">Only on Apple</a>
+                </li>
+                <li>
+                    <a href="/accessories">Accessories</a>
+                </li>
+                <li>
+                    <a href="/support">Support</a>
+                </li>
+            </ul>
+        </nav>
+        <main>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nulla error eveniet doloribus maxime, adipisci inventore neque expedita animi. Eius voluptatibus, vitae quam aspernatur deserunt ad at illo accusantium fugit?</p>
+            <p>Nulla eius recusandae culpa error, sint reiciendis commodi quo unde doloremque laborum aut perspiciatis qui id. Voluptas laborum illum maiores ducimus repellendus ab quos sit exercitationem, cum ut aut soluta!</p>
+            <p>Aspernatur voluptatibus optio aliquam sint blanditiis corporis voluptatum incidunt. Nisi consequuntur hic in magnam, debitis sunt est provident excepturi itaque optio, blanditiis eveniet? Debitis amet aliquam consequuntur magni eveniet. Ratione.</p>
+            <p>Labore, recusandae! Optio quas consectetur, a ex iusto possimus libero delectus corrupti odio voluptates aliquid placeat deleniti! Eius, nesciunt ea? Aut tempora dolor at culpa esse laboriosam? Doloribus, architecto et.</p>
+            <p>Ullam dicta ipsa soluta dolorem. Facilis corporis voluptate, reprehenderit officiis impedit maiores non? Accusamus consequatur autem veritatis. Laboriosam, ea at incidunt explicabo repellat mollitia perspiciatis molestias, quos maiores dolores hic?</p>
+            <p>Amet laboriosam recusandae voluptatum libero architecto, tenetur, repudiandae temporibus dolorem dolores, nostrum quis praesentium veniam corrupti possimus ut ducimus assumenda quam! Sint eos ratione ducimus, deleniti soluta libero mollitia repudiandae.</p>
+            <p>Quo inventore soluta excepturi aspernatur distinctio expedita fugit doloribus cumque provident, delectus aperiam incidunt quia eos ipsa aliquam nihil possimus recusandae fuga quam voluptatum illo accusantium? Porro aut amet voluptatem.</p>
+            <p>Iure id distinctio delectus sint fugiat natus quasi, ad quam doloribus consectetur odio, itaque nesciunt voluptatum exercitationem nemo alias, sunt minus officiis maxime aperiam velit quibusdam. Unde nisi nostrum doloremque!</p>
+            <p>Sapiente ad facere molestias cum esse consequuntur quibusdam repellat consectetur repellendus laborum, tempora totam. Recusandae aperiam molestias sed dolorem fugiat quasi eum, maxime accusamus architecto ratione nesciunt illum, veniam voluptatum?</p>
+            <p>Ex, ea. Aperiam cum fugiat dolore ipsa dolores illo nesciunt quis officiis, aspernatur dolorum dolor laborum eum voluptatibus labore autem eligendi molestias. Ab doloribus quasi saepe earum aliquam dolorem ipsam?</p>
+            <p>Neque, non possimus nulla inventore dicta molestiae odio officiis beatae, alias quasi odit cumque quo cupiditate eos reiciendis et consequatur distinctio commodi quisquam dolor at dolores! Illo porro iste molestias?</p>
+            <p>Debitis necessitatibus saepe dicta in placeat odio et, minima nam eum quibusdam odit beatae autem nobis repudiandae esse voluptatem dolorum earum quam tempora aperiam. Neque labore eveniet quia? Laboriosam, debitis.</p>
+            <p>Molestiae est sequi porro amet numquam assumenda minima accusamus dolorum ab nulla! Optio nesciunt distinctio, a doloremque explicabo impedit praesentium dicta? Quis voluptatum quibusdam nobis iusto quam labore odio accusantium?</p>
+            <p>Tempora sunt ad corrupti minima culpa temporibus dolores optio explicabo, odit eius! Nisi vitae alias quidem accusantium, voluptatum recusandae nostrum modi quasi suscipit id molestias totam asperiores quaerat. Corrupti, pariatur.</p>
+            <p>Nemo, accusamus assumenda mollitia ipsa quasi pariatur, itaque eveniet, quaerat doloremque recusandae illo consectetur vitae? Ratione nemo est tenetur voluptatibus illo sed molestiae vitae molestias, necessitatibus excepturi autem, velit ducimus.</p>
+            <p>Repellat numquam tempore, at beatae distinctio, expedita molestias aliquid omnis, id repudiandae magni. Corrupti ipsa consectetur excepturi. Dolore ducimus rerum sequi consequuntur quo inventore natus culpa ad? Suscipit, soluta voluptas.</p>
+            <p>Architecto, rerum unde voluptas cum sint blanditiis quia sapiente voluptatum quibusdam harum nobis molestias eos perferendis! Fugiat repudiandae assumenda sunt voluptatibus magni? Nisi deserunt illum, officia quam repellat earum laudantium?</p>
+            <p>Rem eius aliquam aut commodi eaque voluptates. Voluptatem rerum ipsum doloribus consequatur! Deleniti quae dolores alias neque, similique officiis incidunt consectetur assumenda quibusdam sapiente vitae, suscipit rerum sint velit iure!</p>
+            <p>Accusantium illum delectus rem. Quod soluta doloremque veritatis cupiditate cumque aliquam iste nostrum ullam eveniet perferendis beatae nisi, nulla incidunt repellendus et similique suscipit qui molestiae modi? Provident, corrupti non?</p>
+            <p>Consectetur minima, dolorum dolore beatae laboriosam fugiat distinctio aut quod fuga, hic tempore debitis autem repellat ea laudantium, velit qui itaque reprehenderit dolor sint perspiciatis eos nam incidunt enim. Voluptate!</p>
+            <p>At deserunt, fuga aut incidunt assumenda, nam dignissimos nostrum, dolorem iusto quis voluptate officiis. Consectetur dolore quod eius nesciunt quaerat quam amet veniam minus, rerum non dolores accusantium fugiat consequatur!</p>
+            <p>Optio, suscipit magni maiores culpa perferendis dicta omnis minima tenetur aspernatur velit ad sunt molestiae natus eum aperiam porro accusantium sequi quas corrupti accusamus blanditiis soluta. Accusamus iste iure molestiae!</p>
+            <p>Sunt eveniet harum iusto, similique, incidunt suscipit quod pariatur molestiae dolor omnis corrupti sequi fugiat magni, officiis iste amet explicabo provident est numquam earum iure culpa aliquam at voluptatem. Praesentium.</p>
+            <p>Illum eos sunt minima modi quidem, distinctio repellat molestias, laudantium deserunt eius voluptatem ut inventore id quibusdam, reiciendis tenetur. Nam nulla a veritatis rerum animi consequatur ut, sapiente eaque consectetur?</p>
+            <p>Ipsa laudantium labore corporis eveniet officiis nulla sapiente harum nisi! Modi a, saepe vitae ipsa earum atque commodi ea, mollitia corrupti impedit consequuntur aspernatur facere velit recusandae ratione, eum repellendus.</p>
+            <p>Voluptatum sapiente, doloremque deleniti cumque ipsa sed fugiat nisi illum assumenda ipsum autem repudiandae, dicta ex? Placeat, numquam ut quisquam nemo maxime inventore similique rem doloremque, eligendi sit id quidem?</p>
+            <p>Voluptate sint ad fugiat provident ea deleniti hic molestiae autem obcaecati aperiam ipsum, omnis dolores corporis porro labore ab! Necessitatibus eum dolorum beatae reiciendis sapiente quaerat dicta nihil nostrum fugiat!</p>
+            <p>Incidunt, adipisci magnam ut explicabo eum reiciendis repudiandae quam, nobis officia molestiae ex commodi tempora ad numquam? Ipsum mollitia impedit a aliquid veniam? Unde, cupiditate animi. Illo officiis ab labore?</p>
+            <p>Minima mollitia ut quidem quos, maiores veniam, soluta nesciunt aspernatur tenetur odio nulla autem ipsa officia cumque consequatur numquam est nihil ipsum dolorum hic, repudiandae quo laudantium quisquam! Laboriosam, ullam?</p>
+            <p>Voluptas, in! Perferendis quam ut atque vero enim voluptatibus mollitia blanditiis eligendi quo quisquam. Eos temporibus molestiae eligendi sunt eaque voluptate quam! Doloremque quae quos qui quam laudantium excepturi voluptatum!</p>
+            <p>Nobis possimus assumenda rem nostrum maiores voluptates itaque obcaecati commodi odit omnis voluptatem harum repudiandae soluta modi sint, velit ipsa iusto quod pariatur non, ut at. Quisquam perferendis quae atque?</p>
+            <p>Deserunt sapiente possimus autem vitae mollitia unde, exercitationem cum corrupti ut ipsam accusamus nihil odio, voluptate dolor minima quod nam? Maiores repellat sapiente nostrum porro architecto tempore quos rerum ullam.</p>
+            <p>Esse atque quibusdam sequi placeat omnis, maiores eligendi quod maxime quam. Placeat ab culpa et odio praesentium laudantium reprehenderit unde delectus magnam cumque accusamus saepe iste, maxime suscipit deleniti doloribus!</p>
+            <p>Quibusdam, dolores quod illum iste rem blanditiis quia doloribus. Ducimus quae modi mollitia numquam, corrupti fugit minima. Voluptas quod odio dolorem iusto facilis aliquid possimus consequatur, vitae, nobis vel praesentium?</p>
+            <p>Dolorem modi placeat porro quae consectetur, eveniet totam et consequuntur dolor id qui reiciendis delectus ipsum praesentium vero cupiditate illo? Fugit, ullam. Beatae ipsam, ad illo temporibus labore provident ipsum!</p>
+            <p>Rerum neque minima at iusto, numquam molestiae, laboriosam, distinctio voluptatem ad quibusdam quo veritatis. Consequatur dolore alias inventore velit eum ullam vero eveniet corrupti voluptatem at, voluptate ipsa! Ipsum, consequuntur.</p>
+            <p>Aperiam dignissimos veritatis perferendis assumenda aut, iusto magni quis excepturi reprehenderit asperiores animi laborum quaerat explicabo eum itaque cum commodi necessitatibus ea alias ad rem accusantium consectetur! Praesentium, consequatur reprehenderit.</p>
+            <p>Consequatur numquam amet illo explicabo sed dolorum in architecto aut dolores voluptatem nesciunt voluptate omnis commodi, dolorem eos iure sapiente? Dolor molestias nisi, cupiditate suscipit quis deserunt necessitatibus ad eum.</p>
+            <p>Id ex at ab. Commodi eius recusandae ab? Laborum sequi provident explicabo porro quis, cumque dolorum amet quas tempora, ducimus nobis eligendi voluptatem, beatae soluta voluptate accusamus quaerat vero aut?</p>
+            <p>Veniam distinctio hic doloremque. Consectetur iste, nostrum quas praesentium corrupti beatae asperiores libero impedit voluptatibus id magni! A, ea? Dolorum autem consequatur mollitia illum praesentium porro exercitationem odit facere beatae!</p>
+        </main>
+
+        <script>
+            function toggle() {
+                const lis = document.querySelectorAll( '.main-menu li:not(:first-child)');
+                console.log(lis);
+
+                for( let i = 0; i < lis.length; i++ ) {
+                    lis[i].classList.toggle('d-mobile-block');
+                }
+            }
+
+
+            const menuToggler = document.querySelector('#menu-toggler');
+            menuToggler.addEventListener( 'click' , toggle);
+        </script>
+    </body>
+</html>
