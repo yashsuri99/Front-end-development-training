@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .meeting {
+                padding: 1em;
+                border: 1px solid navy;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="meeting" data-meeting-title="project kickoff">
+            <h3 class="meeting-title">Project kickoff</h3>
+            <div class="meeting-description">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium exercitationem error totam minus enim dolorem reiciendis consequatur sit nostrum tempore? Molestias quae corporis autem harum error labore quasi tenetur velit!
+            </div>
+        </div>
+
+        <script>
+            const meeting = document.querySelector( '.meeting' );
+            
+            // reading attribute values
+            const meetingTitle = meeting.getAttribute( 'data-meeting-title' );
+            console.log( meetingTitle );
+
+            // set attribute values
+            meeting.setAttribute( 'data-meeting-title', 'AWS architecture' );
+            meeting.setAttribute( 'data-meeting-date', '2022-02-04' );
+        </script>
+    </body>
+</html>

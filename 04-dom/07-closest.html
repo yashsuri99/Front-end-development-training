@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <section class="a">
+            <div class="f">
+                <div class="b">
+                    <div class="c"></div>
+                    <div class="d"></div>
+                    <div class="e"></div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            const e = document.querySelector( '.e' );
+            
+            // error-prone way of getting to the section - when the structure of the page changes, the way you make the selection should also change - BAD!
+            // console.dir( e.parentNode.parentNode.parentNode );
+
+            // the browser keeps moving up the DOM tree, till it finds the "closest element" that satisfies the given selector (has class "a" in this case)
+            console.dir( e.closest( '.a' ) );
+        </script>
+    </body>
+</html>

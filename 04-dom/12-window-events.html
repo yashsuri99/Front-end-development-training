@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <button id="btn-scroll-to-top">Scroll to top</button>
+        <img src="https://m.media-amazon.com/images/I/71hMEM1a9EL._SL1500_.jpg" />
+
+        <script>
+            // load event (important) - fires after the HTML and all its assets (images, css, js etc.) have been fetched
+            window.addEventListener( 'load', function() {
+                console.log( 'window has loaded' );
+            });
+
+            // EXERCISE: unload - fires before another page loads
+
+            // resize event (not so important) - fires for every small resize
+            window.addEventListener( 'resize', function() {
+                console.log( 'resizing' );
+                console.log( window.innerWidth, window.innerHeight ); // viewport
+                console.log( window.outerWidth, window.outerHeight ); // browser
+            });
+
+            window.addEventListener( 'scroll', function() {
+                console.log( window.scrollX, window.scrollY );
+            });
+
+            document.querySelector( '#btn-scroll-to-top' ).addEventListener( 'click', function() {
+                window.scrollTo( 0, 0 );
+            });
+        </script>
+    </body>
+</html>

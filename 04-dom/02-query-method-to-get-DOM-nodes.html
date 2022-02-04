@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1 id="page-title">Getting started with DOM</h1>
+        <section id="section-1">
+            <p id="p1">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti consequatur autem sint est maxime eligendi expedita ratione adipisci iure beatae repellendus explicabo asperiores quia odit non, similique veniam, eos dolorem.
+            </p>
+            <p id="p2">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. A iusto ea quae, odio corrupti laboriosam officiis distinctio ipsum dolorem rem in, eum quia corporis aut id voluptatibus animi! Eius, repellat.
+            </p>
+        </section>
+
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus inventore, aliquid quam sed minima ipsa animi sapiente laborum cumque provident explicabo amet deleniti laudantium cum aliquam eveniet vero officiis veritatis?
+        </p>
+
+        <script>
+            // supported in even old browsers
+            // EXERCISE: getElementsByClassName()
+            // getElementById() - one DOM node, getElementsByTagName() - HTMLCollection (like an array)
+            const h1Node = document.getElementById( 'page-title' );
+            console.dir( h1Node );
+
+            // gets all paras on the page
+            const paras = document.getElementsByTagName( 'p' );
+            console.dir( paras );
+
+            // gets all paras within a particular section
+            const section = document.getElementById( 'section-1' );
+            const parasWithSection1 = section.getElementsByTagName( 'p' );
+            console.log( parasWithSection1 );
+
+            // supported in modern browsers
+            // querySelector() - returns a single DOM node that matches a CSS selector
+            const firstPara = document.querySelector( 'p' );
+            console.dir( firstPara );
+
+            const lastChildOfSection = document.querySelector( 'section > :last-child' );
+            console.dir( lastChildOfSection );
+            
+            // querySelectorAll() - returns a group of DOM nodes that match a CSS selector
+            const allParas = document.querySelectorAll( 'p' );
+            console.dir( allParas );
+
+            // gets all paras within a particular section
+            const allParasWithSection = document.querySelectorAll( '#section-1 > p' );
+            console.dir( allParasWithSection );
+        </script>
+    </body>
+</html>

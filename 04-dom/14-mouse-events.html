@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            div {
+                padding: 1em;
+                border: 1px solid black;
+            }
+
+            .tooltip-container {
+                position: relative;
+            }
+
+            .tooltip {
+                /* display: none; */
+                position: absolute;
+                background-color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <!--
+            click, dblclick,
+            mouseenter
+            mouseleave
+            mousemove
+            mouseover
+        -->
+        <div id="div-1" class="tooltip-container">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit, distinctio totam. Maxime consequatur eveniet ut eos? Totam ab cupiditate expedita! Corrupti eveniet, facilis repellendus tenetur aperiam necessitatibus sit rem animi
+            <div class="tooltip" id="tooltop-1">
+                Some help text
+            </div>
+        </div>
+
+        <script>
+            const div = document.querySelector( 'div' );
+
+            div.addEventListener( 'mouseenter', function() {
+                console.log( 'mouse has entered the div territory' );
+                div.style.backgroundColor = 'lightgray';
+            });
+            
+            div.addEventListener( 'mouseleave', function() {
+                console.log( 'mouse has left the div territory' );
+                div.style.backgroundColor = 'transparent';
+            });
+            
+            div.addEventListener( 'mouseover', function() {
+                console.log( 'mouse is over the div territory' );
+            });
+
+            div.addEventListener( 'mousemove', function( event ) {
+                console.log( 'mouse is moving ', event.clientX, event.clientY );
+                const tooltip = event.target.querySelector( '.tooltip' );
+                tooltip.style.left = event.clientX + 'px';
+                tooltip.style.top = event.clientY + 'px';
+            });
+
+            // EXERCISE: Try dblclick. Does it fire click event also??
+            div.addEventListener( 'click', function() {
+                console.log( 'mouse has been clicked in the div' );
+            });
+
+            div.addEventListener( 'dblclick', function() {
+                console.log( 'mouse has been double-clicked in the div' );
+            });
+        </script>
+    </body>
+</html>

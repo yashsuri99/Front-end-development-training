@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .democlass {
+                border: 1px solid black;
+                padding: 20px;
+                color: olive;
+            }
+        </style>
+    </head>
+    <body>
+        <p id="p1">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit, iusto consequuntur nesciunt praesentium, distinctio quod adipisci quibusdam recusandae nostrum, porro enim? Similique illo ipsa expedita repudiandae commodi. Culpa, omnis tenetur.
+        </p>
+        <form>
+            <div class="inputGroup">
+                <input type="text" minlength="8" id="text">   
+                <div class="error" id="error"></div> 
+            </div>
+            <div class="submit">
+                <button type="submit" value="submit" id="submit" >Submit</button>
+            </div>
+        </form>
+        <!-- Creates an alert on click of button showing the content of paragraph -->
+            <!-- <script>
+                const button = document.querySelector( 'button' );
+                const para = document.querySelector('#p1')
+                button.addEventListener( 'click', function(event) {
+                    event.preventDefault();
+                    alert(para.innerHTML);
+                });
+            </script> -->
+
+            <!-- Changes the background colour to green when the size of input is more than or equal to 8 -->
+            <!-- <script>
+                const inp = document.querySelector('#text');
+                inp.addEventListener('input',function(event){
+                    if(inp.value.length >= 8 ) {
+                        inp.style.backgroundColor = 'lightgreen';
+                        console.log('done');
+                    }
+                    else if (inp.value.length < 8) {
+                        inp.style.backgroundColor = 'white';
+                    }
+                })
+            </script> -->
+
+            <script>
+                const button = document.querySelector('#submit');
+                const inp = document.querySelector('#text');
+                button.addEventListener('click',function(event){
+                    event.preventDefault();
+                    if(inp.value.length < 8) {
+                        const text = document.querySelector('#error');
+                        text.textContent = 'Enter atleast 8 characters';
+                    }
+                    else {
+                        text.textContent = '';
+                    }
+                });
+            </script>
+    </body>
+</html>

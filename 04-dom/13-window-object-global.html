@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <button id="btn-open-google">Open Google search (popup)</button>
+        <button id="btn-close-google">Close Google search (popup)</button>
+
+        <script>
+            console.log( window ); // aka global object
+
+            let popup;
+
+            document.querySelector( '#btn-open-google' ).addEventListener( 'click', function() {
+                // everything to do with the browser window
+                popup = window.open( "https://www.google.com", null, "width=600px,height=300px" );
+            });
+            
+            document.querySelector( '#btn-close-google' ).addEventListener( 'click', function() {
+                popup.close();
+            });
+
+            console.log( document ); // actually window.document
+            console.log( window.document );
+
+            window.alert( 'I am window.alert' );
+
+        </script>
+    </body>
+</html>

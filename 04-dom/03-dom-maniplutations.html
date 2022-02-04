@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <button>Click me</button>
+        <p id="p1" title="Introduction">
+            Initial text in para
+        </p>
+
+        <script>
+            const firstPara = document.querySelector( 'p' );
+
+            setTimeout(function() {
+                // 1. manipulate text / html content
+                // preferred ay to change text
+                // firstPara.textContent = '<strong>New text in para</strong>';
+
+                // interpret HTML tags and create children etc. (innerHTML)
+                firstPara.innerHTML = '<strong>New text in para</strong>';
+
+                 // 2. manipulating styles
+                // inline styles
+                console.dir( firstPara.style );
+
+                firstPara.style.fontSize = '2.5em';
+
+                console.log( firstPara.id );
+                console.log( firstPara.title );
+
+                firstPara.title = 'New title for the para'
+            }, 2000);
+
+            // 3. reacting to user input
+            const button = document.querySelector( 'button' );
+
+            button.addEventListener( 'click', function() {
+                firstPara.style.color = 'purple';
+            });
+        </script>
+    </body>
+</html>

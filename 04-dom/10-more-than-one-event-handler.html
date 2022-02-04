@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div>Some div</div>
+
+        <script>
+            // In very old Internet Explorer browsers (v8) we have attachEvent instead of addEventListener
+            const div = document.querySelector( 'div' );
+
+            // using addEventListener can we add multiple event handlers - YES
+            div.addEventListener('click', function() {
+                console.log( 'handler 1' );
+            });
+            
+            div.addEventListener('click', function() {
+                console.log( 'handler 2' );
+            });
+
+            // using onclick can we add multiple event handlers - NO
+            // this does not get executed on click!
+            div.onclick = function() {
+                console.log( 'handler 1 set using onclick attribute' );
+            };
+            
+            // this is executed on click
+            div.onclick = function() {
+                console.log( 'handler 2 set using onclick attribute' );
+            };
+        </script>
+    </body>
+</html>

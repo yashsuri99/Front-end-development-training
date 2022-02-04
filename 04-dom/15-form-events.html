@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            form {
+                width: 600px;
+                padding: 2em;
+                border: 1px solid black;
+            }
+
+            .form-group {
+                display: flex;
+                flex-flow: row wrap;
+                margin: 1em 0;
+            }
+
+            .form-group label {
+                flex: 0 0 25%;
+            }
+
+            .form-group .form-control {
+                display: flex;
+                flex-flow: column wrap;
+                flex: 1 0 auto;
+            }
+
+            table {
+                border-collapse: collapse;
+                margin-top: 2em;
+            }
+
+            table,
+            th,
+            td {
+                border: 1px solid black;
+            }
+
+            th,
+            td {
+                padding: 1em;
+            }
+
+            .error {
+                color: crimson;
+                font-size: 0.85em;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- submit event -->
+        <form id="add-meeting-form" novalidate>
+            <div class="form-group">
+                <label for="name">Meeting name</label>
+                <div class="form-control">
+                    <input type="text" name="name" id="name" required />
+                    <div class="error" id="name-error"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="date">Meeting date</label>
+                <div class="form-control">
+                    <input type="date" name="date" id="date" />
+                    <div class="error" id="date-error"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="start-time">Start time</label>
+                <div class="form-control">
+                    <input type="time" name="start-time" id="start-time" />
+                    <div class="error" id="startTime-error"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="end-time">End time</label>
+                <div class="form-control">
+                    <input type="time" name="end-time" id="end-time" />
+                    <div class="error" id="endTime-error"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <!-- click event -->
+                <button type="submit">Add meeting</button>
+            </div>
+        </form>
+
+        <table id="meetings-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Start time</th>
+                    <th>End time</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+
+        <script>
+            // "refactoring" - changing structure of the code (no new functionality is added in refactoring)
+
+            // read user inputs
+            const nameNode = document.querySelector( '#name' );
+            const dateNode = document.querySelector( '#date' );
+            const startTimeNode = document.querySelector( '#start-time' );
+            const endTimeNode = document.querySelector( '#end-time' );
+
+            function getMeetingDetails() {
+                // value property of input nodes has the user input
+                const name = nameNode.value.trim();
+                const date = dateNode.value.trim();
+                const startTime = startTimeNode.value.trim();
+                const endTime = endTimeNode.value.trim();
+
+                return {
+                    name,
+                    date,
+                    startTime,
+                    endTime
+                };
+            }
+
+            function onBtnDeleteMeetingClick( event ) {
+                console.log( event.target );
+                event.target.closest( 'tr' ).remove();
+            }
+
+            function createTableRow( meeting ) {
+                // td
+                const td1 = document.createElement( 'td' );
+                const td2 = document.createElement( 'td' );
+                const td3 = document.createElement( 'td' );
+                const td4 = document.createElement( 'td' );
+                const td5 = document.createElement( 'td' );
+
+                // create text nodes
+                const nameTextNode = document.createTextNode( meeting.name );
+                const dateTextNode = document.createTextNode( meeting.date );
+                const startTimeTextNode = document.createTextNode( meeting.startTime );
+                const endTimeTextNode = document.createTextNode( meeting.endTime );
+
+                // delete button
+                const deleteButton = document.createElement( 'button' );
+                deleteButton.textContent = 'Delete meeting';
+                deleteButton.addEventListener('click',onBtnDeleteMeetingClick);
+
+                // add text within the tds
+                td1.appendChild( nameTextNode );
+                td2.appendChild( dateTextNode );
+                td3.appendChild( startTimeTextNode );
+                td4.appendChild( endTimeTextNode );
+                td5.appendChild( deleteButton );
+
+                // tr DOM node created
+                const tr = document.createElement( 'tr' );
+
+                // add the tds within the tr
+                tr.appendChild( td1 );
+                tr.appendChild( td2 );
+                tr.appendChild( td3 );
+                tr.appendChild( td4 );
+                tr.appendChild( td5 );
+
+                return tr;
+            }
+
+            const form = document.querySelector( '#add-meeting-form' );
+
+            function setMeetingNameValidity( meeting ) {
+                // is the input valid
+                let isValid = true;
+
+                // check if meeting name is provided
+                const nameError = document.querySelector( '#name-error' );
+                
+                if( meeting.name.trim().length === 0 ) {
+                    nameError.textContent = 'Meeting name is required';
+                    isValid = false;
+                } else {
+                    nameError.textContent = '';
+                }
+
+                return isValid;
+            }
+
+            /**
+             * 1. Date should be a future date
+             */
+            function setMeetingDateValidity( meeting ) {
+                let isValid = true;
+                
+                const dateError = document.querySelector( '#date-error' );
+
+                // get today
+                const today = new Date();
+
+                // get meeting date
+                const meetingDate = new Date( meeting.date );
+
+                isValid = meetingDate.getTime() >= today.getTime();
+
+                if( !isValid ) {
+                    dateError.textContent = 'Date must be a future date';
+                } else {
+                    dateError.textContent = '';
+                }
+
+                return isValid;
+            }
+
+            function setMeetingStartTimeValidity(meeting) {
+                let isValid = true;
+                const startTimeError = document.querySelector("#startTime-error");
+                isValid = meeting.startTime !== '';
+                if(!isValid) {
+                    startTimeError.textContent = 'Time must be a future date';
+                }
+                else {
+                    startTimeError.textContent = '';
+                }
+                return isValid;
+            }
+
+            function setMeetingsEndTimeValidity(meeting) {
+                let isValid = true;
+                const endTimeError = document.querySelector('#endTime-error')
+                isValid = meeting.startTime < meeting.endTime;
+                if(!isValid) {
+                    endTimeError.textContent = 'End time must be greater than start time';
+                }
+                else {
+                    endTimeError.textContent = '';
+                }
+                return isValid;
+            }
+
+            form.addEventListener( 'submit', function( event ) {
+                // prevent the browser's default action for the event
+                event.preventDefault();
+
+                const meeting = getMeetingDetails();
+                
+                // is the form itself valid - every input is valid
+                let isValid = true;
+                let isFirstErrorMet = false;
+
+                // update the validity of the form based on the inut that is checked
+                isValid = isValid && setMeetingNameValidity( meeting );
+                if( isFirstErrorMet === false && isValid === false ) {
+                    nameNode.focus();
+                    isFirstErrorMet = true;
+                }
+                isValid = isValid && setMeetingDateValidity( meeting );
+                if( isFirstErrorMet === false && isValid === false ) {
+                    dateNode.focus();
+                    isFirstErrorMet = true;
+                }
+                isValid = isValid && setMeetingStartTimeValidity( meeting );
+                if( isFirstErrorMet === false && isValid === false ) {
+                    startTimeNode.focus();
+                    isFirstErrorMet = true;
+                }
+                isValid = isValid && setMeetingsEndTimeValidity( meeting );
+                if( isFirstErrorMet === false && isValid === false ) {
+                    endTimeNode.focus();
+                    isFirstErrorMet = true;
+                }
+                
+                if( isValid ) {
+                    const tr = createTableRow( meeting );
+
+                    const tbody = document.querySelector( '#meetings-table tbody' );
+                    tbody.appendChild( tr );
+
+                    // clear out the inputs for the next meeting entry
+                    nameNode.value = '';
+                    dateNode.value = '';
+                    startTimeNode.value = '';
+                    endTimeNode.value = '';
+                }
+            });
+        </script>
+    </body>
+</html>

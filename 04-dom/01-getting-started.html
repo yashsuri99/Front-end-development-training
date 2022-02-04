@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- A comment DOM node is created -->
+        <h1>Getting started with DOM</h1>
+        <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti consequatur autem sint est maxime eligendi expedita ratione adipisci iure beatae repellendus explicabo asperiores quia odit non, similique veniam, eos dolorem.
+        </p>
+
+        <script>
+            /* DOM nodes - object that the browser creates for the HTML elements */
+            /* A DOM is used to query or modify the corresponding HTML element */
+            console.dir( document ); // HTML document
+            console.dir( document.documentElement ); // html element DOM node
+            console.dir( document.documentElement.children );
+            console.dir( document.documentElement.children[0] ); // head DOM node
+            console.dir( document.documentElement.children[1] ); // body DOM node
+            console.dir( document.documentElement.children[1].children ); // children of the body element
+
+            const h1Node = document.documentElement.children[1].children[0];
+            console.dir( h1Node );
+
+            console.dir( h1Node.parentNode ); // body
+            console.dir( h1Node.nextElementSibling );
+            console.dir( h1Node.nextElementSibling.nextElementSibling );
+            console.dir( h1Node.previousElementSibling ); // null - noting before h1
+
+            console.log( h1Node.nodeName ); // "H1"
+            
+            // there are different kinds of DOM nodes
+            // there is a number 1 - 15
+            console.log( h1Node.nodeType ); // element node
+            console.log( h1Node.nextElementSibling.nodeType ); // element node
+            console.log( document.nodeType ); // 10
+
+
+        </script>
+    </body>
+</html>

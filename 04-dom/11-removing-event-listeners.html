@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <button id="click-button">Click me</button>
+
+        <button id="disable-click-button">Disable click</button>
+
+        <script>
+            const clickButton = document.querySelector( '#click-button' );
+            const disableClickButton = document.querySelector( '#disable-click-button' );
+
+            // if you want to remove an event hanlder, you must first create it ahead of time, and then add it
+            const onClick = function() {
+                alert( 'I was clicked' );
+            };
+
+            clickButton.addEventListener( 'click', onClick );
+
+            disableClickButton.addEventListener( 'click', function() {
+                clickButton.removeEventListener( 'click', onClick );
+            });
+        </script>
+    </body>
+</html>

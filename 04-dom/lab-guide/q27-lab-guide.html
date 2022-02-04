@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .democlass {
+                border: 1px solid black;
+                padding: 20px;
+                color: olive;
+            }
+        </style>
+    </head>
+    <body>
+        <p id="p1">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit, iusto consequuntur nesciunt praesentium, distinctio quod adipisci quibusdam recusandae nostrum, porro enim? Similique illo ipsa expedita repudiandae commodi. Culpa, omnis tenetur.
+        </p>
+        <p id="p2">
+            Voluptatem repellat aperiam sit architecto ea, facere inventore sed dolor a numquam officiis provident praesentium quaerat illum officia ad rerum aut! Quibusdam, exercitationem. Totam ducimus enim perferendis ipsum rerum quidem.
+        </p>
+        <p id="p3">
+            Pariatur quis veniam, molestiae eligendi, deserunt sapiente dolorum eaque assumenda, ad placeat maxime tempore minus cupiditate dolorem veritatis ducimus amet in ipsa error laboriosam. Soluta sunt perspiciatis quas ullam modi.
+        </p>
+
+        <!-- script for adding at the start of the document -->
+        <script>
+            const p1 = document.querySelector('#p1');
+            const p2 = document.createElement('p');
+            p2.textContent = 'I am a new para';
+            p1.parentNode.insertBefore(p2 , p1);
+        </script>
+
+        <!-- script for adding a para on the last of body -->
+        <script>
+            const newBody = document.querySelector('body');
+            const para = document.createElement('p');
+            para.innerHTML = 'New content';
+            newBody.appendChild(para);
+        </script>
+        
+        <!-- print html in second paragraph to console -->
+        <script>
+            const para2 = document.querySelector('#p2');
+            console.dir(para2.innerHTML);
+        </script>
+
+        <!-- remove contents from para2 and create 2 span in paragraphs -->
+        <script>
+            const para3 = document.querySelector('#p2');
+            const newSpan1 = document.createElement('span');
+            const newSpan2 = document.createElement('span');
+            newSpan1.innerHTML = "Span1";
+            newSpan2.innerHTML = "Span2";
+            para3.innerHTML = " ";
+            para3.appendChild(newSpan1);
+            para3.appendChild(newSpan2);
+            console.log(para3);
+        </script>
+
+        <!-- print the id of second paragraph  -->
+        <script>
+            console.dir(para2);
+        </script>
+
+        <!-- changes the id of the second paragraph -->
+        <script>
+            const para5 = document.querySelector('#p2');
+            para5.id = "newPara";
+        </script>
+
+        <!-- sets the name attribrute of 2nd paragraph -->
+        <script>
+            const para6 = document.querySelector('#newPara');
+            para6.setAttribute("name",'Paragraph2');
+        </script>
+
+        <!-- changes the background colour to crimson and font colour to white -->
+        <script>
+            const para7 = document.querySelector('#p3');
+            para7.style.backgroundColor = 'crimson';
+            para7.style.color = 'white';
+        </script>
+
+        <!-- adds class named democlass to third paragraph that contains some styling -->
+        <script>
+            para7.setAttribute("class","democlass")
+        </script>
+    </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <section class="container" id="section-1">
+            <ul>
+                <li>
+                    <a href="https://www.google.com">Google</a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com">Facebook</a>
+                </li>
+                <li>
+                    <a href="https://www.twitter.com">Twitter</a>
+                </li>
+                <li>
+                    <a href="https://www.medium.com">Medium</a>
+                </li>
+            </ul>
+        </section>
+
+        <script>
+            // we can set up the event handlers to execute in a capture phase
+
+            const onLinkClickHandler = function( event ) {
+                // prevents link navigation (Default action of browser)
+                event.preventDefault();
+
+                // the element on which the evnt occured (the link that was clicked)
+                const link = event.target;
+                
+                console.log( 'link clicked : ', link );
+            };
+
+            // set event handler for all link clicks
+            // links is of type NodeList (like an array)
+            const links = document.querySelectorAll( '#section-1 a' );
+
+            // converts array-like objects (NodeList) to an actual array
+            const linksArray = Array.from( links );
+
+            linksArray.forEach(function( link ) {
+                // third argument (true / false)
+                link.addEventListener( 'click', onLinkClickHandler, true );
+            });
+
+            // setup click handler for ul
+            document.querySelector( '#section-1 ul' ).addEventListener( 'click', function() {
+                console.log( 'list clicked : ', 'The ul list was clicked' );
+            }, true);
+            
+            // setup click handler for section
+            document.querySelector( '#section-1' ).addEventListener( 'click', function() {
+                console.log( 'section clicked : ', 'The section was clicked' );
+            }, true);
+        </script>
+    </body>
+</html>
