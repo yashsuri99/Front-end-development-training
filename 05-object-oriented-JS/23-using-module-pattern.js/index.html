@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- 
+            OBJECTIVE: To understand how to create sub-namespaces for different parts of the application so that chances of name collisions is reduced (similarly in meetings app we would have Utils, Meetings, Teams etc. as sub-namespaces)
+        -->
+        <h1>Using Global Abatement patterns</h1>
+        
+        <script src="config.js"></script>
+        <script src="ajax.js"></script>
+        <script src="index.js"></script>
+
+        <script>
+            WorkshopsApp.Workshops.init();
+        </script>
+    </body>
+</html>
