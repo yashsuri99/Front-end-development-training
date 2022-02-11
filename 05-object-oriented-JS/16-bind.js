@@ -26,4 +26,6 @@ teamsAjax('PATCH' , 'action=add_member');
 teamsAjax('GET');
 
 // Create another similar ajax() function where baseUrl is the meetings appbaseUrl, and endpoint is meeyings. Use it to make 2 diffrent requests
+const meetingsAjax = ajax.bind(null, 'https://mymeetingsapp.herokuapp.com/api', 'meetings');
+meetingsAjax('POST', 'action=add_meeting');
 
