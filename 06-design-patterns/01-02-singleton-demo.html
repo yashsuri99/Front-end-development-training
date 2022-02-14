@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .message-container {
+                position: fixed;
+                top: 10px;
+                right: 10px;
+            }
+
+            .message {
+                padding: 1em;
+                border-width: 1px;
+                border-style: solid;
+                border-radius: 5px;
+            }
+
+            .message-success {
+                border-color: green;
+                background-color: lightgreen;
+            }
+            
+            .message-info {
+                border-color: black;
+                background-color: gold;
+            }
+            
+            .message-error {
+                border-color: crimson;
+                background-color: lightpink;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="message-container"></div>
+
+        <button>Show error message</button>
+
+        <script src="01-02-singleton.js"></script>
+
+        <script>
+            const message = Notification.getInstance( 'Test message', 'success' );
+            message.show();
+
+            document.querySelector( 'button' ).addEventListener( 'click', function() {
+                const errMessage = Notification.getInstance( 'Something went wrong', 'error' );
+                errMessage.show();
+            });
+        </script>
+    </body>
+</html>
