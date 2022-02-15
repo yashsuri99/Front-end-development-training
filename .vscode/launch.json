@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\16-debugger.js"
+            "program": "${workspaceFolder}/07-error-handling/03-function-call-stack.js"
         }
     ]
 }
