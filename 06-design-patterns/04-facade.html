@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <button id="btn-click">Click me</button>
+
+        <script src="04-facade.js"></script>
+        <script>
+            // if( window.addEventListener ) {
+            //     document.getElementById( 'btn-click' ).addEventListener( 'click', function() {
+            //         alert( 'clicked' );
+            //     });
+            // } else {
+            //     document.getElementById( 'btn-click' ).attachEvent( 'onclick', function() {
+            //         alert( 'clicked' );
+            //     });
+            // }
+
+            addListener( 
+                document.getElementById( 'btn-click' ), 'click',
+                function() {
+                    alert( 'clicked' );
+                }
+            );
+        </script>
+    </body>
+</html>
