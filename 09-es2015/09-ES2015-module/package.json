@@ -1,0 +1,13 @@
+{
+  "name": "09-es2015-module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Employee-demo.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
