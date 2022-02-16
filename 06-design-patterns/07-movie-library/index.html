@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <!--
+            1. Define a constructor function for a Movie
+            2. Create a Movie object when user tries to add Movie
+
+            3. Define a constructor for MovieList -> maintains an array of movies
+            4. The MovieList should have method - addMovie( movie );
+            5. Create an object of MovieList, and add movies to it
+            6. Define a method called showMovies() that shows the movies in the table. Call this method to show the movies in the table
+        -->
+        <form>
+            <input type="text" placeholder="movie name" />
+            <input type="number" placeholder="year" />
+            <button type="submit">Add movie</button>
+        </form>
+        <table id="movies-list">
+            <thead>
+                <tr>Name</tr>
+                <tr>Year</tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <script src="js/ajax.js"></script>
+        <script src="js/models/Movie.js"></script>
+        <script src="js/models/MovieList.js"></script>
+        <script src="js/index.js"></script>
+
+    </body>
+</html>
