@@ -1,22 +1,28 @@
-import {Person} from './Person.js'
+// we can import many thi
+import Human, { sum as add } from './Person.js';
+// import { sum  } from './xyz.js';
 
-class Employee extends Person {
-    constructor(name,age,role,dept) {
-        super(name,age);  // calls the base constructor
+class Employee extends Human {
+    constructor( name, age, role, dept ) {
+        super( name, age ); // call the base class constructor
 
         this.role = role;
-        this.dept = dept
+        this.dept = dept;
     }
 
     promote() {
         this.role = `Senior ${this.role}`;
     }
 
-    // override the birthday method
+    // override the celebrateBirthday() method
     celebrateBirthday() {
-        console.log('Happy Birthday');
-        super.celebrateBirthday();  // will call the method of the base class
+        super.celebrateBirthday(); // call the base class (Person class) celebrateBirthday()
+        console.log( `Happy birthday ${this.name}!` );
     }
 }
 
-export {Employee};
+console.log( add( 12, 13 ) );
+
+export {
+    Employee
+}

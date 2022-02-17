@@ -1,11 +1,11 @@
-import {Employee} from './Employee.js'
+import { Employee } from './Employee.js';
 
-const john = new Employee('John',32,'Accountant','Finance');
-const jane = new Employee('Jane',28,'Developer','XT');
+const john = new Employee( 'John', 32, 'Accountant', 'Finance' );
+const jane = new Employee( 'Jane', 28, 'Developer', 'XT' );
 
 john.celebrateBirthday();
 john.promote();
-john.setName('Janette');
+jane.setName( 'Janette' );
 
-console.log(john);
-console.log(jane);
+console.log( john );
+console.log( jane );
