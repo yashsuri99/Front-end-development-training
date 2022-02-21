@@ -21,15 +21,16 @@ class SequelMovie extends Movie {
         this.earlierMovies = earlierMovies;
     }
 
-    getLifetimeEarnings(amount) {
-        super.collection(this.earlierMovies.boxOfficeCollection);
+    getLifetimeEarnings(boxOfficeCollection) {
+        const earning = earning + this.boxOfficeCollection;
+        return(earning);
     }
 }
 
 const movie1 = new Movie('KGF',['a','b','c'],2016,400000);
-const movie2 = new SequelMovie('KGF2',['a','b','c','d'],2018,400000,['KGF']);
+const movie2 = new SequelMovie('KGF2',['a','b','c','d'],2018,400000,[movie1]);
 movie1.addToCast('d');
 movie1.collection(200000);
-
+const total = movie2.getLifetimeEarnings();
 console.log(movie1);
 console.log(movie2);

@@ -2,8 +2,8 @@
 
 type Person = {
     name: string,
-    readonly age: number,
-    spouse?: Person
+    readonly age: number, // property whose value cannot be reset
+    spouse?: Person // optional property
 };
 
 let john : Person;
@@ -24,3 +24,5 @@ let jane : Person = {
 
 // optional property can be added later
 john.spouse = jane;
+
+export {}
