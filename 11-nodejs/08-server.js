@@ -1,7 +1,7 @@
 /**
  * OBJECTIVES:
  * 1. How to use path parameters
- * 2. How to use query parameters (pending)
+ * 2. How to use query parameters
  * 3. How to set response headers
  */
  const http = require( 'http' );
@@ -12,7 +12,7 @@
  // returns an array of meetings whose name has the provided name as substring
  const searchByName = ( name ) => {
      return meetings.filter( item => item.name.toUpperCase().includes( name.toUpperCase() ) );
- }
+ };
  
  const server = http.createServer(( req, res ) => {
      const { url } = req;
