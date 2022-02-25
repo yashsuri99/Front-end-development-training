@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- hide on this -->
+    <button class="btn-click-me">Hide</button>
+
+    <!-- show on this -->
+    <button class="btn-click-me">Show</button>
+
+    <!-- toggle on this -->
+    <button class="btn-click-me">Toggle</button>
+    
+    <!-- slide toggle on this -->
+    <button class="btn-click-me">Slide Toggle</button>
+    
+    <!-- fade toggle on this -->
+    <button class="btn-click-me">Fade Toggle</button>
+
+    <p id="para">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus sunt
+      harum vel corporis consequuntur accusantium ipsa, officia a explicabo,
+      inventore vero, necessitatibus omnis nemo beatae sint deserunt deleniti
+      perferendis sit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum ratione reiciendis aperiam sed fugiat ullam porro fuga quam expedita! Vero ipsa iusto, nihil obcaecati voluptatem expedita et consequuntur explicabo reiciendis!
+      Recusandae quo id quis nihil dignissimos ipsa soluta libero exercitationem laborum asperiores delectus temporibus, ut aut, optio laboriosam error molestiae vero provident! Officia fuga, perspiciatis inventore a sequi repellat repellendus.
+      Modi excepturi voluptates at est quam dolores eaque quasi sapiente, placeat aperiam in porro odit eum dolorem natus dolore harum libero velit voluptatum obcaecati mollitia. Beatae, repellendus sapiente. Possimus, quibusdam.
+    </p>
+
+    <script src="./jquery/jquery-3.6.0.js"></script>
+    <script>
+      // when DOMContentLoaded event is fired
+      $(document).ready(function() {
+        $('.btn-click-me').eq(0).on( 'click', function() {
+          $( '#para' ).hide();
+        });
+        
+        $('.btn-click-me').eq(1).on( 'click', function() {
+          $( '#para' ).show();
+        });
+        
+        $('.btn-click-me').eq(2).on( 'click', function() {
+          $( '#para' ).toggle();
+        });
+        
+        $('.btn-click-me').eq(3).on( 'click', function() {
+          $( '#para' ).slideToggle();
+        });
+        
+        $('.btn-click-me').eq(4).on( 'click', function() {
+          $( '#para' ).fadeToggle();
+        });
+      });
+    </script>
+  </body>
+</html>

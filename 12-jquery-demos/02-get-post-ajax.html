@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="workshops"></ul>
+
+    <script src="./jquery/jquery-3.6.0.js"></script>
+    <script>
+      // get workshops and load it using $.get() - use done() and fail( xhr, status, message ). On success use $().append() to add workshops
+      // using callback
+      $.get("http://workshops-server.herokuapp.com/workshops")
+          .done(
+              function ( workshops ) {
+                  for (let i = 0; i < workshops.length; i++) {
+                      $("ul").append(`<li>${workshops[i].name}<li>`);
+                  }
+              }
+          )
+          .fail(
+              function( xhr, status, message ) {
+                  alert( message );
+              }
+          );
+
+      // next post this (pass url, data)
+      $.post( 
+        'http://workshops-server.herokuapp.com/sessions',
+          {
+              name: 'Ajax methods in jQuery',
+              speaker: 'John Doe',
+              abstract: 'Introduction to get(), post(), ajax() and load()',
+              duration: 3,
+              level: 'Intermediate',
+              sequenceId: 1,
+              upvoteCount: 0,
+              workshopId: 12
+          }
+      )
+          .done(function( data ) {
+            console.log( data );
+          })
+          .fail(function( xhr, status, message ) {
+            alert( message );
+          });
+
+      // do the same with ajax( { url, method, data, success, error } ). No need to stringify data
+      // you can also use done() and fail() instead of success() and error() callbacks
+      $.ajax({
+        url: 'http://workshops-server.herokuapp.com/sessions',
+        method: 'post',
+        data: {
+              name: 'Ajax methods in jQuery',
+              speaker: 'John Doe',
+              abstract: 'Introduction to get(), post(), ajax() and load()',
+              duration: 3,
+              level: 'Intermediate',
+              sequenceId: 1,
+              upvoteCount: 0,
+              workshopId: 12
+        },
+        success( response ) {
+          console.log( response );
+        },
+        error( xhr, status, message ) {
+          alert( message );
+        }
+      });
+    </script>
+  </body>
+</html>
