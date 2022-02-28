@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            .task-lists {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .task-list {
+                padding: 1em;
+                border: 1px solid lightskyblue;
+                border-radius: 1em;
+                flex: 0 0 49%;
+            }
+
+            .task {
+                padding: 1em;
+                background-color: lightskyblue;
+                margin: 0.5em 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="task-lists">
+            <div class="task-list" id="not-done">
+                <h2>NOT DONE</h2>
+                <div class="task" draggable="true" id="task-1">Conversion to SPA</div>
+                <div class="task" draggable="true" id="task-2">Using regular expressions</div>
+            </div>
+            <div class="task-list" id="done">
+                <h2>DONE</h2>
+            </div>
+        </div>
+
+        <script>
+            // drag -> fired on the element which is dragged
+            // dragover -> fired on a drop target as the draggable element is moved over it
+            // drop -> fired on a drop target as the user releases the mouse button
+
+            const task = document.querySelectorAll( '.task' );
+            const doneList = document.querySelector( '#done' );
+
+            let draggableId;
+
+            Array.from( task ).forEach(taskItem => {
+                taskItem.addEventListener( 'drag', function( event ) {
+                    const id = event.target.getAttribute( 'id' )
+                    console.log( id );
+
+                    // store the id of the element being dragged
+                    event.dataTransfer.setData( 'text/plain', id );
+
+                    draggableId = id;
+                });
+            });
+
+            // allow dropping within drop target
+            doneList.addEventListener( 'dragover', function( event ) {
+                event.preventDefault();
+            });
+
+            // handle drop on drop target
+            doneList.addEventListener( 'drop', function( event ) {
+                // const id = event.dataTransfer.getData( 'text/plain' );
+                // console.log( id );
+                // event.target.appendChild( document.querySelector( '#' + id ) );
+                
+                this.appendChild( document.querySelector( '#' + draggableId ) );
+            });
+        </script>
+    </body>
+</html>

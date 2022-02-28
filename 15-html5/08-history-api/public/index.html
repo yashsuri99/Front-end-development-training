@@ -14,7 +14,7 @@
             <nav>
                 <ul>
                     <!-- If we click on a link, the browser will change the URL, and make request for a new HTML page -> we want to avoid this -->
-                    <li><a href="/" class="router-link">Home</a></li>
+                    <li><a href="/home" class="router-link">Home</a></li>
                     <li><a href="/contact" class="router-link">Contacts</a></li>
                 </ul>
             </nav>
@@ -30,7 +30,7 @@
         <template id="contact">
             <nav>
                 <ul>
-                    <li><a href="/" class="router-link">Home</a></li>
+                    <li><a href="/home" class="router-link">Home</a></li>
                     <li><a href="/contact" class="router-link">Contacts</a></li>
                 </ul>
             </nav>
@@ -44,6 +44,19 @@
             </div>
         </template>
 
-        <script src="js/index.js"></script>
+        <template id="page-not-found">
+            <nav>
+                <ul>
+                    <li><a href="/home" class="router-link">Home</a></li>
+                    <li><a href="/contact" class="router-link">Contacts</a></li>
+                </ul>
+            </nav>
+            <h1>Not Found</h1>
+            <p>
+                The page you are looking for doesn't exist
+            </p>
+        </template>
+ 
+        <script src="js/index.js" type="module"></script>
     </body>
 </html>

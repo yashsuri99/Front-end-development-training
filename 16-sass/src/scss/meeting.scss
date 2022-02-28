@@ -1,0 +1,31 @@
+@use 'sass:color';
+@use './vars';
+
+/* nesting selectors */
+.meeting {
+    padding: 1em;
+    border: 1px solid vars.$primary-color;
+    margin: 1em 0;
+
+    .meeting-title {
+        font-size: 1.2em;
+        font-style: italic;
+    }
+
+    .meeting-description {
+        font-size: 0.9em;
+
+        a {
+            text-decoration: none;
+            color: vars.$primary-color;
+
+            &:hover {
+                text-decoration: underline;
+            }
+            
+            &:active {
+                color: color.adjust( orange, $lightness: -10% );
+            }
+        }
+    }
+}

@@ -1,0 +1,51 @@
+// @use is used to import built-in modules like color
+@use 'sass:color';
+
+@use './vars';
+
+// $primary-color: orange;
+// $success-color: green;
+// $danger-color: crimson;
+
+.alert {
+    padding: 1em;
+    border-width: 1px;
+    border-radius: 5px;
+}
+
+.alert-primary {
+    border-color: vars.$primary-color;
+    // using the color module's adjust method to get a lighter color
+    background-color: color.adjust( vars.$primary-color, $lightness : 20% );
+}
+
+.alert-success {
+    border-color: vars.$success-color;
+    background-color: color.adjust( vars.$success-color, $lightness : 20% );
+}
+
+.alert-danger {
+    border-color: vars.$danger-color;
+    background-color: color.adjust( vars.$danger-color, $lightness : 20% );
+}
+
+.btn {
+    padding: 0.5em 1em;
+    border: 0;
+    border-radius: 4px;
+}
+
+.btn-primary {
+    background-color: vars.$primary-color;
+    color: white;
+}
+
+.btn-success {
+    background-color: vars.$success-color;
+    color: white;
+}
+
+.btn-danger {
+    background-color: vars.$danger-color;
+    color: white;
+}

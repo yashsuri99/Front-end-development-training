@@ -1,0 +1,25 @@
+/* nesting selectors */
+.meeting {
+  padding: 1em;
+  border: 1px solid purple;
+  margin: 1em 0;
+}
+.meeting .meeting-title {
+  font-size: 1.2em;
+  font-style: italic;
+}
+.meeting .meeting-description {
+  font-size: 0.9em;
+}
+.meeting .meeting-description a {
+  text-decoration: none;
+  color: purple;
+}
+.meeting .meeting-description a:hover {
+  text-decoration: underline;
+}
+.meeting .meeting-description a:active {
+  color: #cc8400;
+}
+
+/*# sourceMappingURL=meeting.css.map */
