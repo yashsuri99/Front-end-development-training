@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            svg {
+                width: 800px;
+                height: 600px;
+                border: 1px solid black;
+            }
+
+            #demo-line {
+                stroke: crimson;
+                stroke-width: 2;
+            }
+
+            #smiley {
+                fill: yellow;
+            }
+
+            .eye {
+                fill: lightpink;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- does not lose quality, great for charts, slow on updates (not great for online graphic games - use canvas) -->
+        <svg>
+            <!-- <line x1="50" y1="50" x2="750" y2="550" id="demo-line" /> -->
+            
+            <!-- face -->
+            <circle cx="400" cy="300" r="200" id="smiley" />
+            
+            <!-- eyes -->
+            <circle cx="325" cy="250" r="40" class="eye" />
+            <circle cx="475" cy="250" r="40" class="eye" />
+        </svg>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <button id="btn-click-me">Click me and I will show an alert</button>
+        
+        
+        <span>This operation may take a long time</span>
+        <div>
+            <input type="text" id="number" />
+            <button id="btn-calculate-sum">Calculate sum</button>
+        </div>
+        <div>
+            Result : <span id="result"></span>
+        </div>
+
+        <script>
+            document.querySelector( '#btn-click-me' ).addEventListener( 'click', function() {
+                alert( 'Hello' );
+            });
+
+            document.querySelector( '#btn-calculate-sum' ).addEventListener( 'click', function() {
+                const num = parseInt( document.querySelector( '#number' ).value );
+                
+                // this executes the script in a "separate thread"
+                const worker = new Worker( './03-worker.js' );
+
+                // { data: { num: 100 } }
+                worker.postMessage({
+                    // num: num
+                    num
+                });
+
+                worker.onmessage = function( { data: { sum } } ) {
+                    document.querySelector( '#result' ).textContent = sum;
+                };
+            });
+        </script>
+    </body>
+</html>
