@@ -1,19 +1,17 @@
 // @use is used to import built-in modules like color
 @use 'sass:color';
-
-@use './vars';
-
-// $primary-color: orange;
-// $success-color: green;
-// $danger-color: crimson;
+// @use './vars' as v; // variable called v
+@use './vars'; // variable called vars
+@use './mixins/utils' as utils;
 
 .alert {
     padding: 1em;
     border-width: 1px;
-    border-radius: 5px;
+    border-radius: 5px; // use mixin
 }
 
 .alert-primary {
+    @extend .alert;
     border-color: vars.$primary-color;
     // using the color module's adjust method to get a lighter color
     background-color: color.adjust( vars.$primary-color, $lightness : 20% );
@@ -32,20 +30,23 @@
 .btn {
     padding: 0.5em 1em;
     border: 0;
-    border-radius: 4px;
+    @include utils.border-radius( /* 4px */ ); // default value is anyway 4px
 }
 
 .btn-primary {
+    @extend .btn;
     background-color: vars.$primary-color;
     color: white;
 }
 
 .btn-success {
+    @extend .btn;
     background-color: vars.$success-color;
     color: white;
 }
 
 .btn-danger {
+    @extend .btn;
     background-color: vars.$danger-color;
     color: white;
 }

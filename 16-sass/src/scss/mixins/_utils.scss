@@ -1,0 +1,17 @@
+@mixin border-radius( $radius : 4px ) {
+    -webkit-border-radius: $radius;
+       -moz-border-radius: $radius;
+        -ms-border-radius: $radius;
+         -o-border-radius: $radius;
+            border-radius: $radius;
+}
+
+/* create a text-shadow mixin with 4 arguments */
+
+@mixin text-shadow($x: 3px, $y: 3px, $blur:3px, $color: gold) {
+    -webkit-text-shadow: $x $y $blur $color;
+       -moz-text-shadow: $x $y $blur $color;
+        -ms-text-shadow: $x $y $blur $color;
+         -o-text-shadow: $x $y $blur $color;
+            text-shadow: $x $y $blur $color;
+}

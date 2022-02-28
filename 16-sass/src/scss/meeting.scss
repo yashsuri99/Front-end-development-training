@@ -1,11 +1,15 @@
 @use 'sass:color';
+
+// do not give the leading _ when importing a partial
 @use './vars';
+@use './mixins/utils';
 
 /* nesting selectors */
 .meeting {
     padding: 1em;
     border: 1px solid vars.$primary-color;
     margin: 1em 0;
+    @include utils.text-shadow();
 
     .meeting-title {
         font-size: 1.2em;
@@ -14,6 +18,7 @@
 
     .meeting-description {
         font-size: 0.9em;
+        /* provide a text-shadow using the mixin */
 
         a {
             text-decoration: none;
@@ -24,7 +29,7 @@
             }
             
             &:active {
-                color: color.adjust( orange, $lightness: -10% );
+                color: color.adjust( vars.$primary-color, $lightness: -10% );
             }
         }
     }

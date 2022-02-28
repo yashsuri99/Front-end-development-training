@@ -1,8 +1,14 @@
+/* create a text-shadow mixin with 4 arguments */
 /* nesting selectors */
 .meeting {
   padding: 1em;
   border: 1px solid purple;
   margin: 1em 0;
+  -webkit-text-shadow: 3px 3px 3px gold;
+  -moz-text-shadow: 3px 3px 3px gold;
+  -ms-text-shadow: 3px 3px 3px gold;
+  -o-text-shadow: 3px 3px 3px gold;
+  text-shadow: 3px 3px 3px gold;
 }
 .meeting .meeting-title {
   font-size: 1.2em;
@@ -10,6 +16,7 @@
 }
 .meeting .meeting-description {
   font-size: 0.9em;
+  /* provide a text-shadow using the mixin */
 }
 .meeting .meeting-description a {
   text-decoration: none;
@@ -19,7 +26,7 @@
   text-decoration: underline;
 }
 .meeting .meeting-description a:active {
-  color: #cc8400;
+  color: #4d004d;
 }
 
 /*# sourceMappingURL=meeting.css.map */
