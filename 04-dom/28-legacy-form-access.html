@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h2>Onward journey</h2>
+        <form>
+            <input type="text" name="fullname" placeholder="Full name" />
+            <input type="number" name="num-passengers" placeholder="Num passengers" />
+            <input type="date" name="start-date" placeholder="Start date" />
+            <input type="date" name="end-date" placeholder="End date" />
+
+            <!-- Add the mode of travel dropdown and access it in JS -->
+            <select name="mode-of-travel" id="">
+                <option>Car</option>
+                <option>Bus</option>
+                <option selected>Train</option>
+                <option>Plane</option>
+            </select>
+
+            <button>Book ticket</button>
+        </form>
+        
+        <h2>Return journey</h2>
+        <form>
+            <input type="text" name="fullname" placeholder="Full name" />
+            <input type="number" name="num-passengers" placeholder="Num passengers" />
+            <input type="date" name="start-date" value="2022-03-01" placeholder="Start date" />
+            <input type="date" name="end-date" placeholder="End date" />
+
+            <button type="submit">Book ticket</button>
+            <button type="reset">Reset</button>
+        </form>
+
+        <strong>Not really a submit button in the true sense</strong>
+        <button id="submission-button">Submit button (outside of form)</button>
+        <button id="reset-button">Reset button (outside of form)</button>
+
+        <script>
+            // all form nodes (a list)
+            console.log( document.forms );
+
+            // the first form
+            console.log( document.forms[0] );
+
+            // accessing an input within a form using the name of the input
+            console.log( document.forms[0]['fullname'] );
+            
+            /* Print the value of the travel dropdown selection */
+            console.log( document.forms[0]['mode-of-travel'].value );
+
+            document.getElementById( 'submission-button' ).addEventListener( 'click', function( event ) {
+                // JS way of submitting a form
+                document.forms[1].submit();
+            });
+            
+            document.getElementById( 'reset-button' ).addEventListener( 'click', function( event ) {
+                // JS way of resetting a form
+                document.forms[1].reset();
+            });
+        </script>
+    </body>
+</html>
