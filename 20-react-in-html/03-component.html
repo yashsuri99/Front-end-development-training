@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .message {
+                border: 1px solid black;
+                margin: 1em 0;
+            }
+
+            .message-title,
+            .message-body {
+                padding: 1em;
+            }
+
+            .message-title {
+                color: white;
+            }
+
+            .message-success {
+                border-color: green;
+            }
+            
+            .message-success .message-title {
+                background-color: green;
+            }
+            
+            .message-error {
+                border-color: crimson;
+            }
+            
+            .message-error .message-title {
+                background-color: crimson;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+        <Script type="text/babel">
+            // class (old style), function (new style)
+            class Message extends React.Component {
+                // within React.Component's constructor this line exists
+                // this.props = props;
+
+                render() {
+                    console.log( this.props );
+                    const { variant, title, body } = this.props;
+
+                    return (
+                        <div id="message" className={'message message-' + variant}>
+                            <div className="message-title">{title}</div>
+                            <div className="message-body" key="key-message-body">{body}</div>
+                        </div>
+                    );
+                }
+            }
+
+            // const el = <Message></Message>; // or <Message /> in short
+
+            // const props = { variant: "success", title: "Success!", body: "Meeting was added" }
+            // const message = new Message( props );
+            ReactDOM.render(
+                <div>
+                    <Message
+                        variant="success" 
+                        title="Success!"
+                        body="Meeting was added"
+                    />
+                    <Message
+                        variant="error" 
+                        title="Ooops!"
+                        body="Something went wrong"
+                    />
+                </div>,
+                document.getElementById( 'root' )
+            );
+        </Script>
+    </body>
+</html>
