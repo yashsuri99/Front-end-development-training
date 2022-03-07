@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .message {
+                border: 1px solid black;
+            }
+
+            .message-title,
+            .message-body {
+                padding: 1em;
+            }
+
+            .message-title {
+                color: white;
+            }
+
+            .message-success {
+                border-color: green;
+            }
+            
+            .message-success .message-title {
+                background-color: green;
+            }
+            
+            .message-error {
+                border-color: crimson;
+            }
+            
+            .message-error .message-title {
+                background-color: crimson;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+        <Script type="text/babel">
+            /* key is a unique identifier among siblings - 2 siblings cannot be assigned the same key */
+            const el1 = (
+                <div id="message" className="message message-success">
+                    <div className="message-title">Success!</div>
+                    <div className="message-body" key="key-message-body">Added new meeting</div>
+                </div>
+            );
+
+            // React DOM creates the DOM nodes based on el1 properties, and then render the DOM
+            ReactDOM.render( el1, document.getElementById( 'root' ) );
+
+            setTimeout(() => {
+                const el2 = (
+                    <div id="message" className="message message-error">
+                        <div className="message-title">Oops!</div>
+                        <hr />
+                        <div className="message-body" key="key-message-body">Could not fetch teams</div>
+                    </div>
+                );
+
+                // React DOM creates the DOM nodes based on el1 properties, and then render the DOM
+                // React DOM checks the existing DOM for the current UI
+                ReactDOM.render( el2, document.getElementById( 'root' ) );
+            }, 30000);
+        </Script>
+    </body>
+</html>
