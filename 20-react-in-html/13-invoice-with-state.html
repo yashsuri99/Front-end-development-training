@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+        <script type="text/babel">
+            class Invoice extends React.Component {
+                state = {
+                    items: this.props.items
+                };
+
+                deleteItem = ( event, item ) => {
+                    console.log( event, item );
+                    this.setState(state => {
+                        // ..your code
+                        return {
+                            items: state.items.filter(i => i !== item)
+                        }
+                    })
+                } 
+
+                render() {
+                    const { customerName, coupon } = this.props;
+                    const { items } = this.state;
+
+                    const trEls = items.map((item) => {
+                        return(
+                            <tr>
+                                <td>{item.name}</td>
+                                <td>{item.price}</td>
+                                <td>{item.quantity}</td>
+                                <td>{item.price * item.quantity}</td>
+                                <td>
+                                    <button style = {{color: 'crimson', fontSize: '8px'}}
+                                            onClick = {(event) => {
+                                                this.deleteItem(event,item);
+                                            }}
+                                    >
+                                        Delete
+                                    </button>
+                                </td>
+                            </tr>
+                        )
+                    });
+                    return (
+                        <div className="card container my-5">
+                            <h2>{customerName}</h2>
+                            {
+                                coupon ? (
+                                    <div>
+                                        Use this coupon to get a discount on the next purchase : {coupon}
+                                    </div>
+                                ) : null
+                            }
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>Total</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {/* In JSX we can render items in an array of React elements */}
+                                    {trEls}
+                                </tbody>
+                            </table>
+                        </div>
+                    );
+                }
+            };
+
+            const props1 = {
+                items: [
+                    {
+                        name: 'Parle G',
+                        price: 10,
+                        quantity: 2
+                    },
+                    {
+                        name: 'Cadbury Dairy Milk',
+                        price: 45,
+                        quantity: 4
+                    },
+                    {
+                        name: 'Lays Salted Potato Chips',
+                        price: 30,
+                        quantity: 1,
+                    }
+                ],
+                customerName: 'Jane Doe'
+            };
+            
+            const props2 = {
+                items: [
+                    {
+                        name: 'Parle G',
+                        price: 10,
+                        quantity: 2
+                    },
+                    {
+                        name: 'Cadbury Dairy Milk',
+                        price: 45,
+                        quantity: 4
+                    },
+                    {
+                        name: 'Lays Salted Potato Chips',
+                        price: 30,
+                        quantity: 1,
+                    }
+                ],
+                customerName: 'John Doe',
+                coupon: 'NEW30'
+            };
+
+            ReactDOM.render(
+                <React.Fragment>
+                    <Invoice {...props1} />
+                    <Invoice {...props2} />
+                </React.Fragment>,
+                document.getElementById( 'root' )
+            );
+        </script>
+    </body>
+</html>

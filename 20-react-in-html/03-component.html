@@ -68,7 +68,7 @@
             // const props = { variant: "success", title: "Success!", body: "Meeting was added" }
             // const message = new Message( props );
             ReactDOM.render(
-                <div>
+                <React.Fragment>
                     <Message
                         variant="success" 
                         title="Success!"
@@ -79,7 +79,7 @@
                         title="Ooops!"
                         body="Something went wrong"
                     />
-                </div>,
+                </React.Fragment>,
                 document.getElementById( 'root' )
             );
         </Script>

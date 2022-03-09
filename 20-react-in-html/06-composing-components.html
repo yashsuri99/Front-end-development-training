@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+        <script type="text/babel">
+
+            // this is a normal function
+            const celsiusToFareheit = (tempInCelsius) => {
+                return(1.8 * tempInCelsius + 32);
+            };
+
+            const Temperature = ( { min, max, converter } ) => {
+                return (
+                    <div>
+                        <h3>Temperature</h3>
+                        <div>Min: {converter(min)} Celsius</div>
+                        <div>Max: {converter(max)} Celsius</div>
+                    </div>
+                );
+            };
+
+            const Rainfall = ({rainfall, nextFiveDaysRainfall}) => {
+                return(
+                    <div>
+                        <h3>Rainfall</h3>
+                        <div>Today: {rainfall}</div>
+                        <div>Next 5 days rainfall: {nextFiveDaysRainfall.join( ',' )}</div>
+                    </div>
+                );
+            }
+
+
+            const WeatherReport = ( props ) => {
+                const { city, state, min, max, rainfall, nextFiveDaysRainfall, converter } = props;
+                
+                console.log( typeof min ); // string
+
+                /* within {} we can have - {string}, {number}, {boolean}, {null}, {undefined}, {react element}, an array of any of these */
+                return (
+                    <div className="container card my-5 p-5">
+                        <h2>{city}, {state}</h2>
+                        <hr />
+                        <Temperature min={min} max={max} converter={converter} />
+                        <Rainfall rainfall={rainfall} nextFiveDaysRainfall={nextFiveDaysRainfall} />
+                    </div>
+                );
+            };
+            const state = 'Uttarakhand';
+
+            ReactDOM.render(
+                <WeatherReport 
+                    city="Dehradun"
+                    state={state}
+                    min={10}
+                    max={20} 
+                    rainfall={5}
+                    converter={celsiusToFareheit}
+                    nextFiveDaysRainfall={[ 3, 6, 7, 7, 0 ]}
+                />,
+                document.getElementById( 'root' ) 
+            );
+            // ReactDOM.render(
+            //     <Temperature 
+            //         min={10}
+            //         max={20} 
+            //     />,
+            //     document.getElementById( 'root' ) 
+            // );
+        </script>
+    </body>
+</html>

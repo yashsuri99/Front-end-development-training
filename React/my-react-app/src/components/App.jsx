@@ -8,14 +8,14 @@ import "./App.scss";
 class App extends Component {
     render() {
         return (
-            <div>
+            <>
                 <Navbar />
                 <div className='sidebar-and-main'>
                     <Sidebar />
                     <Main />
                 </div>
                 
-            </div>
+            </>
         );
     }
 }

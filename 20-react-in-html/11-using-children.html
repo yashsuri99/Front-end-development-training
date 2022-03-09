@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .message {
+                border: 1px solid black;
+                margin: 1em 0;
+            }
+
+            .message-title,
+            .message-body {
+                padding: 1em;
+            }
+
+            .message-title {
+                color: white;
+            }
+
+            .message-success {
+                border-color: green;
+            }
+            
+            .message-success .message-title {
+                background-color: green;
+            }
+            
+            .message-error {
+                border-color: crimson;
+            }
+            
+            .message-error .message-title {
+                background-color: crimson;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+        <script type="text/babel">
+            const Message = ( {variant, title, body, children} ) => {
+                return (
+                    <div className={"message message-" + variant}>
+                        <div className="message-title">{title}</div>
+                        <div className="message-body">{children}</div>
+                    </div>
+                )
+            };
+
+            ReactDOM.render(
+                <Message title="Success" body="Meetin has been added!" variant="success">
+                    <p>Meeting id = 1234</p>
+                    <p>Meeting was added</p>
+                    <a href="/meetings/1234">Click here for meeting details</a>
+                </Message>,document.getElementById('root'))
+        </script>
+    </body>
+</html>

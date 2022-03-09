@@ -8,13 +8,29 @@
     </head>
     <body>
         <div id="root"></div>
-
         <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
         <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
-
         <script type="text/babel">
-            
+            class Project extends React.Component{
+                render() {
+                    console.log( this.props );
+                    return (
+                        <div>
+                            <button>-</button>
+                            <span id="counter">0</span>
+                            <button>+</button>
+                        </div>
+                    );
+                }
+            }
+            ReactDOM.render(
+                <React.Fragment>
+                    <Project/>
+                    <Project/>
+                </React.Fragment>,
+                document.getElementById( 'root' )
+            );
         </script>
     </body>
 </html>

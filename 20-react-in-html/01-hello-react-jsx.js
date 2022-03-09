@@ -17,8 +17,6 @@ const div = (
 console.log(hr);
 console.log(div);
 
-hr.type = 'br';
-
 // React elements are immutable -> the value of their properties cannot be changed
 // try it - this gives an error
 // console.log(hr);  // no change in type
