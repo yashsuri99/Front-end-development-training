@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+        <script type="text/babel">
+            /**
+             * Lifecycle phases of a insatnce of a component
+             * 1. Mounting - the components instance comes into the page
+             * 2. Update - there is state / props change
+             * 3. Unmounting - before it goes off the page
+             * 
+             * We want to do something in these phases
+             * 1. Mounting - we want to fetch teams as soon as TeamPage component loads on the page (when we go to /teams route)
+             * 2. Update - we want to remove team / add a member and refresh the UI
+             * 3. Unmounting - nothing to do in Team page
+             * 
+             * Specially named methods (they are executed at different phases)
+             * 1. componentDidMount() - Mounting phase
+             * 2. componentDidUpdate() - Update phase - after a state / prop change
+             * 3. componentWillUnmount() - before the component is removed from the page (form example this is called on TeamsPage component instance when we move from /teams -> /meetings)
+             */
+            
+             /** For the demo please check the Workshops Application (v6 onwards) */
+        </script>
+    </body>
+</html>

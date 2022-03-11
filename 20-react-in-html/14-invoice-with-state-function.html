@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+        <script type="text/babel">
+            const Invoice = ( { items, customerName, coupon } ) => {
+                
+                // React will create a state whenever an instnace of a function
+                // useState() returns an array
+                // 1. state data
+                // 2. setter for state data
+
+                // always create a copy of the props an work with it
+                const [curItems, setCurItems] = React.useState([...items]);
+                console.log(curItems);
+                console.log(setCurItems)
+
+                const deleteItem = ( event, item ) => {
+                        setCurItems( items => {
+                            return items.filter( i => i.name !== item.name)
+                        })
+                };
+
+                return (
+                    <div className="card container my-5">
+                        <h2>{customerName}</h2>
+                        {
+                            coupon ? (
+                                <div>
+                                    Use this coupon to get a discount on the next purchase : {coupon}
+                                </div>
+                            ) : null
+                        }
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    curItems.map(
+                                        item => (
+                                            <tr key={item.name}>
+                                                <td>{item.name}</td>
+                                                <td>Rs. {item.price}</td>
+                                                <td>{item.quantity}</td>
+                                                <td>Rs. {item.price * item.quantity}</td>
+                                                <td>
+                                                    <button onClick={event => deleteItem( event, item )}>
+                                                        Delete
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        )
+                                    )
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                );
+            };
+
+            const props1 = {
+                items: [
+                    {
+                        id: 1,
+                        name: 'Parle G',
+                        price: 10,
+                        quantity: 2
+                    },
+                    {
+                        id: 2,
+                        name: 'Cadbury Dairy Milk',
+                        price: 45,
+                        quantity: 4
+                    },
+                    {
+                        id: 3,
+                        name: 'Lays Salted Potato Chips',
+                        price: 30,
+                        quantity: 1,
+                    }
+                ],
+                customerName: 'Jane Doe'
+            };
+            
+            const props2 = {
+                items: [
+                    {
+                        name: 'Parle G',
+                        price: 10,
+                        quantity: 2
+                    },
+                    {
+                        name: 'Cadbury Dairy Milk',
+                        price: 45,
+                        quantity: 4
+                    },
+                    {
+                        name: 'Lays Salted Potato Chips',
+                        price: 30,
+                        quantity: 1,
+                    }
+                ],
+                customerName: 'John Doe',
+                coupon: 'NEW30'
+            };
+
+            ReactDOM.render(
+                <React.Fragment>
+                    <Invoice {...props1} />
+                    <Invoice {...props2} />
+                </React.Fragment>,
+                document.getElementById( 'root' )
+            );
+        </script>
+    </body>
+</html>

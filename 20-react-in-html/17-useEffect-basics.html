@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+        <script type="text/babel">
+            const Counter = () => {
+                const [ count, setCount ] = React.useState( 0 );
+
+                const decrement = () => setCount( c => c - 1 );
+                const increment = () => setCount( c => c + 1 );
+
+                // called after first render (cdm), and also after state / prop updates (cdu)
+                React.useEffect(
+                    () => { // f1 -> the "effect" runs after this function completes execution, and UI that is returned in rendered
+                        console.log( 'called on initial load, and state / props update' );
+                    }
+                );
+
+                React.useEffect(
+                    () => {
+                        console.log( 'I am an effect which runs ONLY on first page load' );
+                    },
+                    []
+                );
+
+                console.log( 'Counter called, count = ', count );
+
+                return (
+                    <div>
+                        <button onClick={decrement}>-</button>
+                        {count}
+                        <button onClick={increment}>+</button>
+                    </div>
+                );
+            };
+
+            ReactDOM.render( <Counter />, document.getElementById( 'root' ) );
+        </script>
+    </body>
+</html>

@@ -6,7 +6,7 @@
         "tryblock"
     ],
     "workbench.editor.centeredLayoutAutoResize": true,
-    // "editor.formatOnSave": true,
+    "editor.formatOnSave": true,
     // enable per-language (here: Prettier as formatter)
     "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"

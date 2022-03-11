@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import Navbar from './Navbar';
-import Sidebar from './Sidebar';
-import Main from './Main';
+import React, { Component } from "react";
+import Navbar from "./Navbar";
+import Sidebar from "./Sidebar";
+import Main from "./Main";
 
 import "./App.scss";
 
@@ -10,11 +10,10 @@ class App extends Component {
         return (
             <>
                 <Navbar />
-                <div className='sidebar-and-main'>
+                <div className="sidebar-and-main">
                     <Sidebar />
                     <Main />
                 </div>
-                
             </>
         );
     }

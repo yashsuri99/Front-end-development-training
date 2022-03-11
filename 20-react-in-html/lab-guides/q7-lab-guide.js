@@ -1,6 +1,22 @@
+const Contact = ({contact}) => 
+{
+    return(
+        <div>
+            <div>
+                TEL: {contact.tel};
+            </div>
+            <div>
+                EMAILID: {contact.emailid};
+            </div>
+        </div>
+        
+    )
+    
+}
+
 const BussinessCard = ({firstName,lastName,lastNameFirst,designation,company,contact}) => {
     return(
-        <div class="card container my-2 mx-2">
+        <div class="card container my-2 mx-2" key={contact.emailid}>
             {
                 lastNameFirst ? (
                     <div>{lastName} , {firstName}</div>
@@ -9,12 +25,7 @@ const BussinessCard = ({firstName,lastName,lastNameFirst,designation,company,con
             <div>
                 CEO @ {company};
             </div>
-            <div>
-                TEL: {contact.tel};
-            </div>
-            <div>
-                EMAILID: {contact.email};
-            </div>
+            <Contact contact={contact}></Contact>
         </div>
     )
 }
