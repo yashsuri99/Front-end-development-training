@@ -1,0 +1,39 @@
+<!--
+Redux gives us data that is shared globally across the app, and a mechanism to change that data
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <button onclick="store.dispatch( { type: 'DECREMENT' } )">-</button>
+        <span>0</span>
+        <button onclick="store.dispatch( { type: 'INCREMENT' } )">+</button>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/5.0.0-alpha.0/redux.js"></script>
+        <script>
+            // reducer - logic regarding how the data should change
+            // given 1) current state, 2) action => the new state
+            // action -> { type: 'INCREMENT' }
+            const reducer = (state, action) => {
+                switch (action.type) {
+                    case "INCREMENT":
+                        return state + 1;
+                    case "DECREMENT":
+                        return state - 1;
+                    default:
+                        return state;
+                }
+            };
+
+            // store -> a place to store global data
+            const store = Redux.createStore(reducer, 0);
+
+            store.getState();
+        </script>
+    </body>
+</html>

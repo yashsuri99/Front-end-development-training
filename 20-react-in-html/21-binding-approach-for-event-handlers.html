@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .message {
+                border: 1px solid black;
+            }
+
+            .message-title,
+            .message-body {
+                padding: 1em;
+            }
+
+            .message-title {
+                color: white;
+            }
+
+            .message-success {
+                border-color: green;
+            }
+
+            .message-success .message-title {
+                background-color: green;
+            }
+
+            .message-error {
+                border-color: crimson;
+            }
+
+            .message-error .message-title {
+                background-color: crimson;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script
+            src="https://unpkg.com/react@17/umd/react.development.js"
+            crossorigin
+        ></script>
+        <script
+            src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+            crossorigin
+        ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+        <script type="text/babel">
+            const MessageTitle = ({ title, toggle }) => {
+                return (
+                    <div className="message-title" onClick={toggle}>
+                        {title}
+                    </div>
+                );
+            };
+
+            const MessageBody = ({ show, children }) => {
+                return (
+                    show && (
+                        <div className="message-body" key="key-message-body">
+                            {children}
+                        </div>
+                    )
+                );
+            };
+
+            class Message extends React.Component {
+                state = {
+                    show: true,
+                };
+
+                // approach 1
+                // one way of binding the "this" (making sure "this" is the Message object)
+                // toggle = () => {
+                //     this.setState( state => {
+                //         return {
+                //             show: !state.show
+                //         };
+                //     });
+                // };
+
+                // approach 2
+                toggle() {
+                    console.log("this = ", this);
+
+                    this.setState((state) => {
+                        return {
+                            show: !state.show,
+                        };
+                    });
+                }
+
+                render() {
+                    const { title, children } = this.props;
+
+                    console.log("this = ", this);
+
+                    // this.toggle.bind() creates a new function that calls this.toggle() but with given context
+
+                    return (
+                        <div id="message" className="message message-success">
+                            <MessageTitle
+                                title={title}
+                                toggle={this.toggle.bind(this)}
+                            />
+                            <MessageBody show={this.state.show}>
+                                {children}
+                            </MessageBody>
+                        </div>
+                    );
+                }
+            }
+
+            ReactDOM.render(
+                <Message title="Success">
+                    <p>Added new meeting</p>
+                </Message>,
+                document.getElementById("root")
+            );
+        </script>
+    </body>
+</html>

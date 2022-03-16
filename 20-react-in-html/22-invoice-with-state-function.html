@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css"
+        />
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script
+            src="https://unpkg.com/react@17/umd/react.development.js"
+            crossorigin
+        ></script>
+        <script
+            src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+            crossorigin
+        ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+        <!-- do not use the min version -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.8.1/prop-types.js"></script>
+
+        <script type="text/babel">
+            const Invoice = ({ items, customerName, customerType, coupon }) => {
+                const [curItems, setCurItems] = React.useState([...items]);
+
+                const deleteItem = (event, item) => {
+                    setCurItems((items) => {
+                        return items.filter((i) => i.name !== item.name);
+                    });
+                };
+
+                return (
+                    <div className="card container my-5">
+                        <h2>{customerName}</h2>
+                        <h3 className="text-info">{customerType}</h3>
+                        {coupon ? (
+                            <div>
+                                Use this coupon to get a discount on the next
+                                purchase : {coupon}
+                            </div>
+                        ) : null}
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {curItems.map((item) => (
+                                    <tr key={item.name}>
+                                        <td>{item.name}</td>
+                                        <td>Rs. {item.price}</td>
+                                        <td>{item.quantity}</td>
+                                        <td>
+                                            Rs. {item.price * item.quantity}
+                                        </td>
+                                        <td>
+                                            <button
+                                                onClick={(event) =>
+                                                    deleteItem(event, item)
+                                                }
+                                            >
+                                                Delete
+                                            </button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                );
+            };
+
+            Invoice.propTypes = {
+                items: PropTypes.arrayOf(
+                    PropTypes.shape({
+                        id: PropTypes.number.isRequired,
+                        name: PropTypes.string.isRequired,
+                        price: PropTypes.number,
+                        quantity: PropTypes.number,
+                    })
+                ),
+                customerName: PropTypes.string,
+                coupon: PropTypes.string,
+            };
+
+            Invoice.defaultProps = {
+                // if you do not pass customerType prop then it should get 'general' as its value
+                customerType: "normal",
+            };
+
+            const props1 = {
+                items: [
+                    {
+                        id: 1,
+                        name: "Parle G",
+                        price: 10,
+                        quantity: 2,
+                    },
+                    {
+                        id: 2,
+                        name: "Cadbury Dairy Milk",
+                        price: 45,
+                        quantity: 4,
+                    },
+                    {
+                        id: 3,
+                        name: "Lays Salted Potato Chips",
+                        price: 30,
+                        quantity: 1,
+                    },
+                ],
+                customerName: "Jane Doe",
+                // customerType: 'prime'
+            };
+
+            ReactDOM.render(
+                <Invoice {...props1} />,
+                document.getElementById("root")
+            );
+        </script>
+    </body>
+</html>

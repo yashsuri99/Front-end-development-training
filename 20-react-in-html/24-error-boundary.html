@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .error {
+                color: crimson;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script
+            src="https://unpkg.com/react@17/umd/react.development.js"
+            crossorigin
+        ></script>
+        <script
+            src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+            crossorigin
+        ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+        <script type="text/babel">
+            // there is no "superpower" (no hooks) for catching errors in children
+            class ErrorBoundary extends React.Component {
+                state = {
+                    error: null,
+                };
+
+                // called when any descendant component throws an error, and none of the ancestors going up to the ErrorBoundary element have caught it
+                componentDidCatch(error) {
+                    console.log("componentDidCatch : ", error.message);
+                    this.setState({
+                        error,
+                    });
+                }
+
+                render() {
+                    const { error } = this.state;
+
+                    return error === null ? (
+                        this.props.children
+                    ) : (
+                        <div className="error">{error.message}</div>
+                    );
+                }
+            }
+
+            const IMayThrowError = ({ throwError }) => {
+                if (throwError) {
+                    foo(); // throws an error - no such function
+                }
+
+                return (
+                    <div>
+                        I am a component. I sometimes misbehave and throw and
+                        error.
+                    </div>
+                );
+            };
+
+            ReactDOM.render(
+                <React.Fragment>
+                    <ErrorBoundary>
+                        <IMayThrowError throwError={false} />
+                    </ErrorBoundary>
+                    <ErrorBoundary>
+                        <IMayThrowError throwError={true} />
+                    </ErrorBoundary>
+                </React.Fragment>,
+                document.getElementById("root")
+            );
+        </script>
+    </body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script
+            src="https://unpkg.com/react@17/umd/react.development.js"
+            crossorigin
+        ></script>
+        <script
+            src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+            crossorigin
+        ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+        <script type="text/babel">
+            // HOC -> higher order component (it is a function! not a component!!)
+            // HOC returns a "container component" (the container component renders the presntation component)
+            const withCounter = (Component) => {
+                return class extends React.Component {
+                    state = {
+                        value: 0,
+                    };
+
+                    decrement = () => {
+                        this.setState((state) => {
+                            return {
+                                value: state.value - 1,
+                            };
+                        });
+                    };
+
+                    increment = () => {
+                        this.setState((state) => {
+                            return {
+                                value: state.value + 1,
+                            };
+                        });
+                    };
+
+                    render() {
+                        /* give Component (the presentation component) all it needs as props */
+                        return (
+                            <Component
+                                value={this.state.value}
+                                decrement={this.decrement}
+                                increment={this.increment}
+                            />
+                        );
+                    }
+                };
+            };
+
+            class Counter extends React.Component {
+                render() {
+                    const { value, decrement, increment } = this.props;
+
+                    return (
+                        <div>
+                            <button onClick={decrement}>-</button>
+                            {value}
+                            <button onClick={increment}>+</button>
+                        </div>
+                    );
+                }
+            }
+
+            class FancyCounter extends React.Component {
+                render() {
+                    const { value, decrement, increment } = this.props;
+
+                    return (
+                        <div>
+                            <h1>Fancy Counter</h1>
+                            <hr />
+                            <p>
+                                Click on the button to change the value of count
+                            </p>
+                            <button onClick={decrement}>-</button>
+                            {value}
+                            <button onClick={increment}>+</button>
+                        </div>
+                    );
+                }
+            }
+
+            const CounterContainer = withCounter(Counter);
+            const FancyCounterContainer = withCounter(FancyCounter);
+
+            ReactDOM.render(
+                <React.Fragment>
+                    <CounterContainer />
+                    <FancyCounterContainer />
+                </React.Fragment>,
+                document.getElementById("root")
+            );
+        </script>
+    </body>
+</html>

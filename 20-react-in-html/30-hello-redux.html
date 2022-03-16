@@ -1,0 +1,86 @@
+<!--
+Redux gives us data that is shared globally across the app, and a mechanism to change that data
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <input type="number" id="qty" />
+        <button onclick="dec()">-</button>
+        <span id="counter">0</span>
+        <button onclick="inc()">+</button>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/5.0.0-alpha.0/redux.js"></script>
+
+        <script>
+            // action types
+            const INCREMENT = "INCREMENT";
+            const DECREMENT = "DECREMENT";
+
+            // action creator - creates an action object, and returns it
+            const increment = (value) => {
+                return {
+                    type: INCREMENT,
+                    payload: {
+                        value,
+                    },
+                };
+            };
+
+            const decrement = (value) => {
+                return {
+                    type: DECREMENT,
+                    payload: {
+                        value,
+                    },
+                };
+            };
+
+            /**
+             * Preferred way of initializing state is using a default argument for state
+             */
+            const reducer = (state = { value: 0 }, action) => {
+                switch (action.type) {
+                    case INCREMENT:
+                        return {
+                            value: state.value + action.payload.value,
+                        };
+                    case DECREMENT:
+                        return {
+                            value: state.value - action.payload.value,
+                        };
+                    default:
+                        return state;
+                }
+            };
+
+            // when the store is created, the reducer is called once, and the state = undefined (state will be assigned 0), action = { type: '@@INIT' }
+            // reducer returns the value 0
+            const store = Redux.createStore(reducer);
+
+            store.getState();
+
+            const inc = () => {
+                const value = parseInt(document.querySelector("#qty").value);
+                store.dispatch(increment(value));
+            };
+
+            const dec = () => {
+                const value = parseInt(document.querySelector("#qty").value);
+                store.dispatch(decrement(value));
+            };
+
+            // the function passed is called whenever the store updates the state
+            // we update the UI to show the current state
+            store.subscribe(() => {
+                document.querySelector("#counter").textContent =
+                    store.getState().value;
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="counter-wrapper">
+            <input type="number" id="qty" />
+            <button onclick="dec()">-</button>
+            <span id="counter">0</span>
+            <button onclick="inc()">+</button>
+        </div>
+        <div id="chatbox-wrapper">
+            <label for="chat-message">Message</label>
+            <textarea id="chat-message" oninput="input()"></textarea>
+            You typed: <span id="chat-confirmation"></span>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/5.0.0-alpha.0/redux.js"></script>
+
+        <script>
+            const INCREMENT = "INCREMENT";
+            const DECREMENT = "DECREMENT";
+            const CHAT_INPUT = "CHAT_INPUT";
+
+            const increment = (value) => {
+                return {
+                    type: INCREMENT,
+                    payload: {
+                        value,
+                    },
+                };
+            };
+
+            const decrement = (value) => {
+                return {
+                    type: DECREMENT,
+                    payload: {
+                        value,
+                    },
+                };
+            };
+
+            const chatInput = (value) => {
+                return {
+                    type: CHAT_INPUT,
+                    payload: {
+                        value,
+                    },
+                };
+            };
+
+            // 1. We need multiple reducers to handle different parts of the state
+            // Example: { token : 'wdwdew', email: 'john.doe@example.com' } will be one part of the state - authReducer
+            //          { calendarMeetings : [ { ... }, { ... } ] } will be another part of the state - calendarReducer
+
+            const counterReducer = (state = { value: 0 }, action) => {
+                switch (action.type) {
+                    case INCREMENT:
+                        return {
+                            ...state,
+                            value: state.value + action.payload.value,
+                        };
+                    case DECREMENT:
+                        return {
+                            ...state,
+                            value: state.value - action.payload.value,
+                        };
+                    default:
+                        return state;
+                }
+            };
+
+            const chatReducer = (state = { chatMessage: "" }, action) => {
+                switch (action.type) {
+                    case CHAT_INPUT:
+                        return {
+                            ...state,
+                            chatMessage: action.payload.value,
+                        };
+                    default:
+                        return state;
+                }
+            };
+
+            /*
+                "big state" -> {
+                    counter: { value: 0 },
+                    chat: { chatMessage: '' }
+                }
+            */
+            const rootReducer = Redux.combineReducers({
+                counter: counterReducer, // counterReducer( undefined, { type: '@@INIT' } ) -> { value: 0 }
+                chat: chatReducer,
+            });
+            const store = Redux.createStore(rootReducer);
+
+            // Suppose { type: INCREMENT } action occurs...
+            // action -> { type: INCREMENT }, state.counter = { value: 0 }, counterReducer returns { value: 1 }
+            // action -> { type: INCREMENT }, state.chat = { chatMessage: '' }, counterReducer returns { chatMessage: '' }
+            /*
+                "big state" -> {
+                    counter: { value: 1 },
+                    chat: { chatMessage: '' }
+                }
+            */
+
+            const inc = () => {
+                const value = parseInt(document.querySelector("#qty").value);
+                store.dispatch(increment(value));
+            };
+
+            const dec = () => {
+                const value = parseInt(document.querySelector("#qty").value);
+                store.dispatch(decrement(value));
+            };
+
+            const input = () => {
+                const value = document.querySelector("#chat-message").value;
+                store.dispatch(chatInput(value));
+            };
+
+            store.subscribe(() => {
+                document.querySelector("#counter").textContent =
+                    store.getState().counter.value;
+                document.querySelector("#chat-confirmation").textContent =
+                    store.getState().chat.chatMessage;
+            });
+        </script>
+    </body>
+</html>

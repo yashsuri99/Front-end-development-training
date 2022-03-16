@@ -1,23 +1,21 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import { Form, Button, Container } from "react-bootstrap";
 
 const AddWorkshop = () => {
-    // for every input we create a state variable to hold the current value
-    // we will "control" the input value using the state - therefore we need to update the state when user tries to provide input
-    const [name, setName] = useState("");
-    const [description, setDescription] = useState("");
-    const [startDate, setStartDate] = useState("");
-    const [endDate, setEndDate] = useState("");
+    const nameRef = useRef();
+    const descriptionRef = useRef();
+    const startDateRef = useRef();
+    const endDateRef = useRef();
 
     const addNewWorkshop = async (event) => {
         event.preventDefault();
 
         const workshop = {
-            name,
-            description,
-            startDate,
-            endDate,
+            name: nameRef.current.value,
+            description: descriptionRef.current.value,
+            startDate: startDateRef.current.value,
+            endDate: endDateRef.current.value,
         };
 
         console.log(workshop);
@@ -53,8 +51,7 @@ const AddWorkshop = () => {
                     <Form.Control
                         type="text"
                         placeholder="The workshop's name"
-                        value={name}
-                        onChange={(event) => setName(event.target.value)}
+                        ref={nameRef}
                     />
                 </Form.Group>
 
@@ -64,27 +61,18 @@ const AddWorkshop = () => {
                         type="text"
                         as="textarea"
                         placeholder="A few lines about the workshop"
-                        value={description}
-                        onChange={(event) => setDescription(event.target.value)}
+                        ref={descriptionRef}
                     />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="startDate">
                     <Form.Label>Start date</Form.Label>
-                    <Form.Control
-                        type="date"
-                        value={startDate}
-                        onChange={(event) => setStartDate(event.target.value)}
-                    />
+                    <Form.Control type="date" ref={startDateRef} />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="endDate">
                     <Form.Label>End date</Form.Label>
-                    <Form.Control
-                        type="date"
-                        value={endDate}
-                        onChange={(event) => setEndDate(event.target.value)}
-                    />
+                    <Form.Control type="date" ref={endDateRef} />
                 </Form.Group>
 
                 <Button variant="primary" type="submit">

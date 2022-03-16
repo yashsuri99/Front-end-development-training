@@ -6,13 +6,21 @@ import Main from "./Main";
 import "./App.scss";
 
 class App extends Component {
+    state = {
+        sectionId: "section-1",
+    };
+
+    setSectionId = (sectionId) => {
+        this.setState({});
+    };
     render() {
         return (
             <>
                 <Navbar />
                 <div className="sidebar-and-main">
-                    <Sidebar />
-                    <Main />
+                    <Sidebar setSectionId={this.setSectionId}>
+                        <Main sectionId={this.state.sectionId} />
+                    </Sidebar>
                 </div>
             </>
         );
