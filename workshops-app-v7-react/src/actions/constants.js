@@ -1,0 +1,6 @@
+const LOADING = "LOADING";
+const LOADED = "LOADED";
+const ERROR = "ERROR";
+const NEXT_PAGE = "NEXT_PAGE";
+
+export { LOADING, LOADED, ERROR, NEXT_PAGE };

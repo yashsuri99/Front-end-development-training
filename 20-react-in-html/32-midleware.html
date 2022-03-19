@@ -1,0 +1,109 @@
+<!--
+Redux gives us data that is shared globally across the app, and a mechanism to change that data
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <input type="number" id="qty" />
+        <button onclick="dec()">-</button>
+        <span id="counter">0</span>
+        <button onclick="inc()">+</button>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/5.0.0-alpha.0/redux.js"></script>
+
+        <script>
+            // action types
+            const INCREMENT = "INCREMENT";
+            const DECREMENT = "DECREMENT";
+
+            // action creator - creates an action object, and returns it
+            const increment = (value) => {
+                return {
+                    type: INCREMENT,
+                    payload: {
+                        value,
+                    },
+                };
+            };
+
+            const decrement = (value) => {
+                return {
+                    type: DECREMENT,
+                    payload: {
+                        value,
+                    },
+                };
+            };
+
+            const logger = (store) => {
+                return (next) => {
+                    return (action) => {
+                        console.log("store state is = ", store.getState());
+                        console.log(
+                            `${action.type} dispatched with ${action.payload.value}`
+                        );
+
+                        // passes on control to the next middleware / to the store
+                        next(action);
+
+                        // whatever code comes after call to next() gets executed after the store updates the state
+                        console.log("store state is = ", store.getState());
+                    };
+                };
+            };
+
+            const reducer = (state = { value: 0 }, action) => {
+                switch (action.type) {
+                    case INCREMENT:
+                        // state.value += action.payload.value; // never write code like this in a reducer
+                        // return state;
+
+                        // action.type = 'XYZ'; // never do this
+                        return {
+                            ...state,
+                            value: state.value + action.payload.value,
+                        };
+                    case DECREMENT:
+                        return {
+                            ...state,
+                            value: state.value - action.payload.value,
+                        };
+                    default:
+                        return state;
+                }
+            };
+
+            const store = Redux.createStore(
+                reducer,
+                Redux.applyMiddleware(logger)
+            );
+
+            const inc = () => {
+                const value = parseInt(document.querySelector("#qty").value);
+                store.dispatch(increment(value));
+            };
+
+            const dec = () => {
+                const value = parseInt(document.querySelector("#qty").value);
+
+                // middleware is called before the store gets the action and passes it on to the reducer
+                store.dispatch(decrement(value));
+            };
+
+            // the function passed is called whenever the store updates the state
+            // we update the UI to show the current state
+            // middleware is called before the function f is executed
+            store.subscribe(() => {
+                // f
+                document.querySelector("#counter").textContent =
+                    store.getState().value;
+            });
+        </script>
+    </body>
+</html>

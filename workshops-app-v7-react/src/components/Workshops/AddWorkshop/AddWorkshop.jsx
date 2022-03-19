@@ -1,6 +1,12 @@
 import axios from "axios";
-import React, { useState } from "react";
-import { Form, Button, Container } from "react-bootstrap";
+import React, { useRef, useState } from "react";
+import {
+    Form,
+    Button,
+    Container,
+    Toast,
+    ToastContainer,
+} from "react-bootstrap";
 
 const AddWorkshop = () => {
     // for every input we create a state variable to hold the current value
@@ -9,6 +15,15 @@ const AddWorkshop = () => {
     const [description, setDescription] = useState("");
     const [startDate, setStartDate] = useState("");
     const [endDate, setEndDate] = useState("");
+    const [status, setStatus] = useState("");
+    const [error, setError] = useState(null);
+
+    const resetForm = () => {
+        setName("");
+        setDescription("");
+        setStartDate("");
+        setEndDate("");
+    };
 
     const addNewWorkshop = async (event) => {
         event.preventDefault();
@@ -34,11 +49,15 @@ const AddWorkshop = () => {
             );
             const newWorkshop = response.data;
 
-            alert(
-                `Workshop with name = ${newWorkshop.name} and id=${newWorkshop.id} has been created`
-            );
+            resetForm();
+            // alert(
+            //     `Workshop with name = ${newWorkshop.name} and id=${newWorkshop.id} has been created`
+            // );
+            setStatus("SUCCESS");
         } catch (error) {
-            alert(error.message);
+            // alert(error.message);
+            setStatus("ERROR");
+            setError(error);
         }
     };
 
@@ -46,6 +65,53 @@ const AddWorkshop = () => {
         <Container className="my-5">
             <h1>Add a workshop</h1>
             <hr />
+            <div
+                aria-live="polite"
+                aria-atomic="true"
+                style={{
+                    minHeight: "200px",
+                    width: "300px",
+                    position: "fixed",
+                    top: 10,
+                    right: 10,
+                }}
+            >
+                <ToastContainer position="top-end" className="p-3">
+                    <Toast
+                        show={status === "ERROR"}
+                        onClose={() => setStatus("")}
+                        bg="danger"
+                    >
+                        <Toast.Header>
+                            <img
+                                src="holder.js/20x20?text=%20"
+                                className="rounded me-2"
+                                alt=""
+                            />
+                            <strong className="me-auto">Error</strong>
+                        </Toast.Header>
+                        <Toast.Body>
+                            Something went wrong when adding workshop -{" "}
+                            {error?.message}
+                        </Toast.Body>
+                    </Toast>
+                    <Toast
+                        show={status === "SUCCESS"}
+                        bg="success"
+                        onClose={() => setStatus("")}
+                    >
+                        <Toast.Header>
+                            <img
+                                src="holder.js/20x20?text=%20"
+                                className="rounded me-2"
+                                alt=""
+                            />
+                            <strong className="me-auto">Yay!</strong>
+                        </Toast.Header>
+                        <Toast.Body>Added workshop successfully</Toast.Body>
+                    </Toast>
+                </ToastContainer>
+            </div>
             <Form onSubmit={addNewWorkshop}>
                 <Form.Group className="mb-3" controlId="name">
                     {/* <label htmlFor=""></label> */}
